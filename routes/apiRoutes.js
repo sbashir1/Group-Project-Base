@@ -422,7 +422,7 @@ router.get('/Chefs/:chef_id', async (req, res) => {
   }
 });
 
-router.put('/Chefs', async (req, res) => {
+router.post('/Chefs', async (req, res) => {
   try {
     await db.Chefs.update(
       {
