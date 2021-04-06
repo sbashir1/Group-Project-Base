@@ -196,24 +196,28 @@ router.put('/macros', async (req, res) => {
 /// /////////////////////////////////
 /// Restaurants Awards Endpoints/////
 /// /////////////////////////////////
-router.get('/restrictions', async (req, res) => {
+
+router.get('/rest_award', async (req, res) => {
   try {
-    const restrictions = await db.DietaryRestrictions.findAll();
-    res.json(restrictions);
+    const rest_awards = await db.restaurantsandmonuments.findAll();
+    const reply = rest_awards.length > 0 ? { data: rest_awards } : { message: 'no results found' };
+    res.json(reply);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
-
-router.get('/restrictions/:restriction_id', async (req, res) => {
+router.post('/rest_award', async (req, res) => {
+  const rest_awards = await db.restaurantsandmonuments.findAll();
+  const currentId = (await rest_awards.length) + 1;
   try {
-    const restrictions = await db.DietaryRestrictions.findAll({
-      where: {
-        restriction_id: req.params.restriction_id
-      }
+    const newAwards = await db.restaurantsandmonuments.create({
+      restaurant_id: currentId,
+      award_id: currentId,
+      years_won: req.body.years_won
+      star_rating: req.body.star_rating,
     });
-    res.json(restrictions);
+    res.json(newAwards);
   } catch (err) {
     console.error(err);
     res.error('Server error');
@@ -223,7 +227,59 @@ router.get('/restrictions/:restriction_id', async (req, res) => {
 /// ////////////////////////////////////////////
 /// ////////////Awards Endpoints///////////////
 /// //////////////////////////////////////////
+router.get('/awards', async (req, res) => {
+  try {
+    const awards = await db.restaurantsandmonuments.findAll();
+    const reply = awards.length > 0 ? { data: awards } : { message: 'no results found' };
+    res.json(reply);
+  } catch (err) {
+    console.error(err);
+    res.error('Server error');
+  }
+});
+router.get('/awards/:award_id', async (req, res) => {
+  try {
+    const award = await db.restaurantsandmonuments.findAll({
+      where: {
+        award_id: req.params.award_id
+      }
+    });
 
+    res.json(award);
+  } catch (err) {
+    console.error(err);
+    res.error('Server error');
+  }
+});
+router.post('/awards', async (req, res) => {
+  const awards = await db.restaurantsandmonuments.findAll();
+  const currentId = (await awards.length) + 1;
+  try {
+    const newAwards = await db.restaurantsandmonuments.create({
+      award_id: currentId,
+      award_name: req.body.award_name,
+    });
+    res.json(newAwards);
+  } catch (err) {
+    console.error(err);
+    res.error('Server error');
+  }
+});
+
+router.post('/awards/:award_id', async (req, res) => {
+  const awards = await db.restaurantsandmonuments.findAll();
+  const currentId = (await awards.length) + 1;
+  try {
+    const newAwards = await db.restaurantsandmonuments.create({
+      award_id: currentId,
+      award_name: req.body.award_name,
+    });
+    res.json(newAwards);
+  } catch (err) {
+    console.error(err);
+    res.error('Server error');
+  }
+});
 
 
 /// ///////////////////////////////////
