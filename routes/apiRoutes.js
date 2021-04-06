@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 /// /////////////////////////////////
 /// ////Restaurant Endpoints////////
 /// /////////////////////////////////
-router.get('/REST', async (req, res) => {
+router.get('/Rest', async (req, res) => {
   try {
     const rests = await db.restaurantsandmonuments.findAll();
     const reply = rests.length > 0 ? { data: rests } : { message: 'no results found' };
@@ -24,14 +24,13 @@ router.get('/REST', async (req, res) => {
   }
 });
 
-router.get('/REST/:restaurant_id', async (req, res) => {
+router.get('/Rest/:restaurant_id', async (req, res) => {
   try {
     const rest = await db.restaurantsandmonuments.findAll({
       where: {
         restaurant_id: req.params.restaurant_id
       }
     });
-
     res.json(rest);
   } catch (err) {
     console.error(err);
@@ -39,28 +38,13 @@ router.get('/REST/:restaurant_id', async (req, res) => {
   }
 });
 
-router.get('/REST/:food_id', async (req, res) => {
-  try {
-    const food = await db.restaurantsandmonuments.findAll({
-      where: {
-        food_id: req.params.food_id
-      }
-    });
-
-    res.json(food);
-  } catch (err) {
-    console.error(err);
-    res.error('Server error');
-  }
-});
-
-router.post('/REST', async (req, res) => {
+router.post('/Rest', async (req, res) => {
   const rests = await db.restaurantsandmonuments.findAll();
   const currentId = (await rests.length) + 1;
   try {
     const newDining = await db.restaurantsandmonuments.create({
       restaurant_id: currentId,
-      food_id: req.body.food_id, 
+      food_id: currentId,
       restaurent_name: req.body.restaurent_name,
       restaurant_street: req.body.restaurant_street,
       restaurant_zip: req.body.restaurant_zip,
@@ -90,11 +74,10 @@ router.post('/REST', async (req, res) => {
 //   }
 // });
 
-router.put('/REST', async (req, res) => {
+router.put('/Rest', async (req, res) => {
   try {
     await db.restaurantsandmonuments.update(
       {
-        food_id: req.body.food_id,
         restaurent_name: req.body.restaurent_name,
         restaurant_street: req.body.restaurant_street,
         restaurant_zip: req.body.restaurant_zip,
