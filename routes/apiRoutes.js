@@ -207,7 +207,7 @@ router.post('/rest_award', async (req, res) => {
     const newAwards = await db.restaurantsandmonuments.create({
       restaurant_id: currentId,
       award_id: currentId,
-      years_won: req.body.years_won
+      years_won: req.body.years_won,
       star_rating: req.body.star_rating,
     });
     res.json(newAwards);
@@ -279,7 +279,48 @@ router.post('/awards/:award_id', async (req, res) => {
 /// /////////Food Endpoints////////////
 /// //////////////////////////////////
 
+router.get('/Food', async (req, res) => {
+  try {
+    const food = await db.Food.findAll();
+    res.json(food);
+  } catch (err) {
+    console.error(err);
+    res.error('Server error');
+  }
+});
 
+router.get('/Food/:food_id', async (req, res) => {
+  try {
+    const food = await db.Food.findAll({
+      where: {
+        food_id: req.params.food_id
+      }
+    });
+    res.json(food);
+  } catch (err) {
+    console.error(err);
+    res.error('Server error');
+  }
+});
+
+router.put('/Food', async (req, res) => {
+  try {
+    await db.Food.update(
+      {
+        food_type: req.body.food_type,
+      },
+      {
+        where: {
+          food_id: req.body.food_id
+        }
+      }
+    );
+    res.send('Food Successfully Updated');
+  } catch (err) {
+    console.error(err);
+    res.error('Server error');
+  }
+});
 
 
 /// ////////////////////////////////////////////
