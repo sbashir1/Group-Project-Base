@@ -118,7 +118,7 @@ router.put('/REST', async (req, res) => {
 /// ///////////////////////////////////////
 /// Restaurant Monument Endpoints//////////
 /// ///////////////////////////////////////
-router.get('/rest_monu', async (req, res) => {
+router.get('/restaurant_monuments', async (req, res) => {
   try {
     const rest_monu = await db.Rest_Monu.findAll();
     res.json(rest_monu);
@@ -128,11 +128,11 @@ router.get('/rest_monu', async (req, res) => {
   }
 });
 
-router.get('/rest_monu/:rest_id', async (req, res) => {
+router.get('/restaurant_monuments/:rest_id', async (req, res) => {
   try {
     const rest_monu = await db.Rest_Monu.findAll({
       where: {
-        rest_id: req.params.rest_id
+        restaurant_id: req.params.restaurant_id
       }
     });
     res.json(rest_monu);
@@ -142,16 +142,16 @@ router.get('/rest_monu/:rest_id', async (req, res) => {
   }
 });
 
-router.put('/rest_monu', async (req, res) => {
+router.put('/restaurant_monuments', async (req, res) => {
   try {
     await db.Meals.update(
       {
-        monu_id: req.body.monu_id,
-        dist_apart: req.body.dist_apart
+        monument_id: req.body.monument_id,
+        distance_apart: req.body.distance_apart
       },
       {
         where: {
-          rest_id: req.body.rest_id
+          restaurant_id: req.body.restaurant_id
         }
       }
     );
@@ -165,21 +165,21 @@ router.put('/rest_monu', async (req, res) => {
 /// ///////////////////////////////////
 /// ////////Monument Endpoints/////////
 /// //////////////////////////////////
-router.get('/monu', async (req, res) => {
+router.get('/Monuments', async (req, res) => {
   try {
-    const monu = await db.Monument.findAll();
-    res.send(monu);
+    const monument = await db.Monument.findAll();
+    res.send(monument);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.get('/monu/:monument_id', async (req, res) => {
+router.get('/Monuments/:Monument_ID', async (req, res) => {
   try {
     const monument_id = await db.Monument.findAll({
       where: {
-        monument_id: req.params.monument_id
+        Monument_ID: req.params.Monument_ID
       }
     });
     res.json(monu);
@@ -189,17 +189,18 @@ router.get('/monu/:monument_id', async (req, res) => {
   }
 });
 
-router.put('/monu', async (req, res) => {
+router.put('/Monuments', async (req, res) => {
   try {
     // N.B. - this is a good example of where to use code validation to confirm objects
     await db.Monument.update(
       {
-        monument_name: req.body.monument_name,
-        monument_zipcode: req.body.monument_zipcode,
+        Monument_address: req.body.Monument_adress,
+        Monument_name: req.body.Monument_name,
+        Monument_zip: req.body.Monument_zip,
       },
       {
         where: {
-          monument_id: req.body.monument_id
+          Monument_ID: req.body.Monument_ID
         }
       }
     );
