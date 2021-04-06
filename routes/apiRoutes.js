@@ -237,16 +237,96 @@ router.get('/restrictions/:restriction_id', async (req, res) => {
 /// ////////Restaurant Chefs Endpoints//////////
 /// //////////////////////////////////////////
 
+router.get('/Rest_Chef', async (req, res) => {
+  try {
+    const restChef = await db.Rest_Chef.findAll();
+    res.json(restChef);
+  } catch (err) {
+    console.error(err);
+    res.error('Server error');
+  }
+});
 
+router.get('/Rest_Chef/:restaurant_id', async (req, res) => {
+  try {
+    const restChef = await db.Rest_Chef.findAll({
+      where: {
+        restaurant_id: req.params.restaurant_id
+      }
+    });
+    res.json(restChef);
+  } catch (err) {
+    console.error(err);
+    res.error('Server error');
+  }
+});
+
+router.put('/Rest_Chef', async (req, res) => {
+  try {
+    await db.Rest_Chef.update(
+      {
+        chef_id: req.body.chef_id,
+      },
+      {
+        where: {
+          restaurant_id: req.body.restaurant_id
+        }
+      }
+    );
+    res.send('Rest_Chef Successfully Updated');
+  } catch (err) {
+    console.error(err);
+    res.error('Server error');
+  }
+});
 
 /// ////////////////////////////////////////////
-/// ////////Chefs Endpoints//////////
+/// ////////Chefs Endpoints////////// 
 /// //////////////////////////////////////////
 
+router.get('/Chefs', async (req, res) => {
+  try {
+    const chefs = await db.Chefs.findAll();
+    res.json(chefs);
+  } catch (err) {
+    console.error(err);
+    res.error('Server error');
+  }
+});
 
+router.get('/Chefs/:chef_id', async (req, res) => {
+  try {
+    const chefs = await db.Chef.findAll({
+      where: {
+        chef_id: req.params.chef_id
+      }
+    });
+    res.json(chefs);
+  } catch (err) {
+    console.error(err);
+    res.error('Server error');
+  }
+});
 
-
-
+router.put('/Chefs', async (req, res) => {
+  try {
+    await db.Chefs.update(
+      {
+        chef_firstname: req.body.chef_firstname,
+        chef_lastname: req.body.chef_lastname
+      },
+      {
+        where: {
+          chef_id: req.body.chef_id
+        }
+      }
+    );
+    res.send('Chef Successfully Updated');
+  } catch (err) {
+    console.error(err);
+    res.error('Server error');
+  }
+});
 
 /// //////////////////////////////////
 /// ///////Custom SQL Endpoint////////
