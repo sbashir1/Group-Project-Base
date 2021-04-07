@@ -102,33 +102,47 @@ router.put('/Rest', async (req, res) => {
 /// ///////////////////////////////////////
 /// Restaurant Monument Endpoints//////////
 /// ///////////////////////////////////////
-router.get('/restaurant_monuments', async (req, res) => {
+router.get('/rest_monu', async (req, res) => {
   try {
-    const rest_monu = await db.restaurant_monuments.findAll();
-    res.json(restaurant_monuments);
+    const restMonu = await db.rest_monu.findAll();
+    res.json(rest_monu);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.get('/restaurant_monuments/:restaurant_id', async (req, res) => {
+router.get('/rest_monu/:restaurant_id', async (req, res) => {
   try {
-    const rest_monuments = await db.restaurant_monuments.findAll({
+    const restMonu = await db.rest_monu.findAll({
       where: {
         restaurant_id: req.params.restaurant_id
       }
     });
-    res.json(restaurant_monuments);
+    res.json(restMonu);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.put('/restaurant_monuments', async (req, res) => {
+router.post("/rest_monu", async (req, res) => {
   try {
-    await db.restaurant_monuments.update(
+    const newRestMonu = await db.rest_monu.create({
+      restaurant_id: req.body.restaurant_id,
+      monument_id: req.body.monument_id,
+      distance_apart: req.body.distance_apart
+    });
+    res.json(newRestChef);
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
+router.put('/rest_monu', async (req, res) => {
+  try {
+    await db.rest_monu.update(
       {
         monument_id: req.body.monument_id,
         distance_apart: req.body.distance_apart
@@ -146,39 +160,68 @@ router.put('/restaurant_monuments', async (req, res) => {
   }
 });
 
+router.delete("/rest_monu/:restaurant_id", async (req, res) => {
+  try {
+    await db.rest_monu.destroy({
+      where: {
+        restaurant_id: req.params.restaurant_id,
+      },
+    });
+    res.send("Successfully Deleted");
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
 /// ///////////////////////////////////
 /// ////////Monument Endpoints/////////
 /// //////////////////////////////////
-router.get('/Monuments', async (req, res) => {
+router.get('/monuments', async (req, res) => {
   try {
-    const monument = await db.Monuments.findAll();
-    res.send(monument);
+    const monuments = await db.monuments.findAll();
+    res.send(monuments);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.get('/Monuments/:Monument_ID', async (req, res) => {
+router.get('/monuments/:Monument_ID', async (req, res) => {
   try {
     const monument_id = await db.Monuments.findAll({
       where: {
         Monument_ID: req.params.Monument_ID
       }
     });
-    res.json(Monuments);
+    res.json(monuments);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.put('/Monuments', async (req, res) => {
+router.post("/monuments", async (req, res) => {
+  try {
+    const newMonument = await db.monuments.create({
+      Monument_ID: req.body.Monument_ID,
+      Monument_address: req.body.Monument_address,
+      Monument_name: req.body.Monument_name,
+      Monument_zip: req.body.Monument_zip,
+    });
+    res.json(newChef);
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
+router.put('/monuments', async (req, res) => {
   try {
     // N.B. - this is a good example of where to use code validation to confirm objects
-    await db.Monuments.update(
+    await db.monuments.update(
       {
-        Monument_address: req.body.Monument_adress,
+        Monument_address: req.body.Monument_address,
         Monument_name: req.body.Monument_name,
         Monument_zip: req.body.Monument_zip,
       },
@@ -192,6 +235,20 @@ router.put('/Monuments', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.error('Server error');
+  }
+});
+
+router.delete("/monuments/:Monument_ID", async (req, res) => {
+  try {
+    await db.monuments.destroy({
+      where: {
+        Monument_ID: req.params.Monument_ID,
+      },
+    });
+    res.send("Successfully Deleted");
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
   }
 });
 
