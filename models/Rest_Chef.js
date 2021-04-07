@@ -2,14 +2,14 @@ export default (sequelize, DataTypes) => {
   const restChef = sequelize.define(
     'restaurant_chef',
     {
-      restaurant_id: {
+      chef_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        unique: true,
         primaryKey: true
       },
-      chef_id: {
-        type: DataTypes.INTEGER
+      restaurant_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true
       }
     },
     { freezeTableName: true, timestamps: false }

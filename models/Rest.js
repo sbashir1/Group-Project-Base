@@ -1,5 +1,5 @@
-export default (sequelize, DataTypes) => {
-  const Chefs = sequelize.define(
+export default (database, DataTypes) => {
+  const Chefs = database.define(
     'Chefs',
     {
       Chef_ID: {
