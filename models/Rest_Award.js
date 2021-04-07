@@ -1,6 +1,6 @@
 export default (sequelize, DataTypes) => {
-  const Rest_Award = sequelize.define(
-    'Rest_Award',
+  const Rest_awards = sequelize.define(
+    'Rest_awards',
     {
       Restaurant_ID: {
         type: DataTypes.INTEGER,
@@ -22,5 +22,5 @@ export default (sequelize, DataTypes) => {
     },
     { freezeTableName: true, timestamps: false }
   );
-  return Rest_Award;
+  return Rest_awards;
 };
