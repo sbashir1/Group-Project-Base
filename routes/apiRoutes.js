@@ -127,13 +127,14 @@ router.get('/rest_monu/:restaurant_id', async (req, res) => {
 });
 
 router.post("/rest_monu", async (req, res) => {
+  const currentId = (await rests.length) + 1;
   try {
     const newRestMonu = await db.rest_monu.create({
-      restaurant_id: req.body.restaurant_id,
+      restaurant_id: currentId,
       monument_id: req.body.monument_id,
-      distance_apart: req.body.distance_apart
+      distance_apart: req.body.distance_apart,
     });
-    res.json(newRestChef);
+    res.json(newRestMonu);
   } catch (err) {
     console.error(err);
     res.error("Server error");
@@ -180,7 +181,7 @@ router.delete("/rest_monu/:restaurant_id", async (req, res) => {
 router.get('/monuments', async (req, res) => {
   try {
     const monuments = await db.monuments.findAll();
-    res.send(monuments);
+    //res.send(monuments);
   } catch (err) {
     console.error(err);
     res.error('Server error');
@@ -189,12 +190,12 @@ router.get('/monuments', async (req, res) => {
 
 router.get('/monuments/:Monument_ID', async (req, res) => {
   try {
-    const monument_id = await db.Monuments.findAll({
+    const monuments_a = await db.monuments.findAll({
       where: {
         Monument_ID: req.params.Monument_ID
       }
     });
-    res.json(monuments);
+    res.json(monuments_a);
   } catch (err) {
     console.error(err);
     res.error('Server error');
@@ -202,14 +203,16 @@ router.get('/monuments/:Monument_ID', async (req, res) => {
 });
 
 router.post("/monuments", async (req, res) => {
+  const monuments = await db.Rest.findAll();
+  const currentId = (await monuments.length)+1;
   try {
     const newMonument = await db.monuments.create({
-      Monument_ID: req.body.Monument_ID,
+      Monument_ID: currentId,
       Monument_address: req.body.Monument_address,
       Monument_name: req.body.Monument_name,
       Monument_zip: req.body.Monument_zip,
     });
-    res.json(newChef);
+    res.json(newMonument);
   } catch (err) {
     console.error(err);
     res.error("Server error");
