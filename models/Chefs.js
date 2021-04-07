@@ -4,15 +4,17 @@ export default (sequelize, DataTypes) => {
     {
       Chef_ID: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        unique: true,
+        primaryKey: true
       },
       Chef_fn: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
       },
       Chef_ln: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
       }
     },
     { freezeTableName: true, timestamps: false }
