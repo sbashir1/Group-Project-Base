@@ -3,30 +3,31 @@ export default (database, DataTypes) => {
       'restaurant',
       {
         restaurant_id: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          primaryKey: true
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true
         },
         food_id: {
-          type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         restaurant_name: {
-          type: DataTypes.STRING
+            type: DataTypes.STRING
         },
         restaurant_street: {
-          type: DataTypes.STRING
+            type: DataTypes.STRING
         },
         restaurant_zip: {
-          type: DataTypes.INTEGER
+            type: DataTypes.INTEGER
         },
         restaurant_town: {
             type: DataTypes.STRING
         },
         restaurant_phone: {
-        type: DataTypes.STRING
+            type: DataTypes.STRING
         },
         restaurant_email: {
-        type: DataTypes.STRING
+            type: DataTypes.STRING
         }
       },
       { freezeTableName: true, timestamps: false }

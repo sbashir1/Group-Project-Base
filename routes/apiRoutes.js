@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 /// /////////////////////////////////
 router.get('/Rest', async (req, res) => {
   try {
-    const rests = await db.restaurantsandmonuments.findAll();
+    const rests = await db.Rest.findAll();
     const reply = rests.length > 0 ? { data: rests } : { message: 'no results found' };
     res.json(reply);
   } catch (err) {
@@ -26,7 +26,7 @@ router.get('/Rest', async (req, res) => {
 
 router.get('/Rest/:restaurant_id', async (req, res) => {
   try {
-    const rest = await db.restaurantsandmonuments.findAll({
+    const rest = await db.Rest.findAll({
       where: {
         restaurant_id: req.params.restaurant_id
       }
@@ -39,10 +39,10 @@ router.get('/Rest/:restaurant_id', async (req, res) => {
 });
 
 router.post('/Rest', async (req, res) => {
-  const rests = await db.restaurantsandmonuments.findAll();
+  const rests = await db.Rest.findAll();
   const currentId = (await rests.length) + 1;
   try {
-    const newDining = await db.restaurantsandmonuments.create({
+    const newRest = await db.Rest.create({
       restaurant_id: currentId,
       food_id: currentId,
       restaurent_name: req.body.restaurent_name,
@@ -53,7 +53,7 @@ router.post('/Rest', async (req, res) => {
       restaurant_email: req.body.restaurant_email
       
     });
-    res.json(newDining);
+    res.json(newRest);
   } catch (err) {
     console.error(err);
     res.error('Server error');
@@ -76,7 +76,7 @@ router.post('/Rest', async (req, res) => {
 
 router.put('/Rest', async (req, res) => {
   try {
-    await db.restaurantsandmonuments.update(
+    await db.Rest.update(
       {
         restaurent_name: req.body.restaurent_name,
         restaurant_street: req.body.restaurant_street,
