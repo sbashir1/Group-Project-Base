@@ -1,21 +1,17 @@
 export default (sequelize, DataTypes) => {
-  const Chefs = sequelize.define(
-    'Chefs',
+  const Awards = sequelize.define(
+    'Awards',
     {
-      Chef_ID: {
+      award_id: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      Chef_fn: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      Chef_ln: {
+      award_name: {
         type: DataTypes.STRING,
         allowNull: false
       }
     },
     { freezeTableName: true, timestamps: false }
   );
-  return Chefs;
+  return Awards;
 };

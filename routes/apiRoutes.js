@@ -3,6 +3,7 @@ import express from 'express';
 import sequelize from 'sequelize';
 
 import db from '../database/initializeDB.js';
+import Awards from '../models/Awards.js';
 
 const router = express.Router();
 
@@ -228,61 +229,48 @@ router.post('/rest_award', async (req, res) => {
 /// ////////////////////////////////////////////
 /// ////////////Awards Endpoints///////////////
 /// //////////////////////////////////////////
-router.get('/awards', async (req, res) => {
+router.get('/Awards', async (req, res) => {
   try {
-    const awards = await db.restaurantsandmonuments.findAll();
-    const reply = awards.length > 0 ? { data: awards } : { message: 'no results found' };
-    res.json(reply);
+    const awards = await db.Awards.findAll();
+    res.json(awards);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
-router.get('/awards/:award_id', async (req, res) => {
+router.get('/Awards/:award_id', async (req, res) => {
   try {
-    const award = await db.restaurantsandmonuments.findAll({
+    const awards = await db.Awards.findAll({
       where: {
         award_id: req.params.award_id
       }
     });
-
-    res.json(award);
+    res.json(awards);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
-router.post('/awards', async (req, res) => {
-  const awards = await db.restaurantsandmonuments.findAll();
-  const currentId = (await awards.length) + 1;
+
+router.post('/Awards', async (req, res) => {
   try {
-    const newAwards = await db.restaurantsandmonuments.create({
-      award_id: currentId,
-      award_name: req.body.award_name,
-    });
-    res.json(newAwards);
+    await db.Awards.update(
+      {
+        award_id: req.body.award_id,
+        award_name: req.body.award_name,
+      },
+      {
+        where: {
+          award_id: req.body.award_id
+        }
+      }
+    );
+    res.send('Successfully Updated');
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
-
-router.post('/awards/:award_id', async (req, res) => {
-  const awards = await db.restaurantsandmonuments.findAll();
-  const currentId = (await awards.length) + 1;
-  try {
-    const newAwards = await db.restaurantsandmonuments.create({
-      award_id: currentId,
-      award_name: req.body.award_name,
-    });
-    res.json(newAwards);
-  } catch (err) {
-    console.error(err);
-    res.error('Server error');
-  }
-});
-
-
 /// ///////////////////////////////////
 /// /////////Food Endpoints////////////
 /// //////////////////////////////////
