@@ -1,21 +1,36 @@
 export default (database, DataTypes) => {
-  const Chefs = database.define(
-    'Chefs',
+  const rest = database.define(
+    'restaurant',
     {
-      Chef_ID: {
+      restaurant_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true
+      },
+      food_id: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      Chef_fn: {
-        type: DataTypes.STRING,
-        allowNull: false
+      restaurant_name: {
+        type: DataTypes.STRING
       },
-      Chef_ln: {
-        type: DataTypes.STRING,
-        allowNull: false
+      restaurant_street: {
+        type: DataTypes.STRING
+      },
+      restaurant_zip: {
+        type: DataTypes.INTEGER
+      },
+      restaurant_town: {
+        type: DataTypes.STRING
+      },
+      restaurant_phone: {
+        type: DataTypes.STRING
+      },
+      restaurant_email: {
+        type: DataTypes.STRING
       }
     },
     { freezeTableName: true, timestamps: false }
   );
-  return Chefs;
+  return rest;
 };
