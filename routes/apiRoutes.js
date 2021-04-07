@@ -360,22 +360,49 @@ router.get('/Rest_Chef/:restaurant_id', async (req, res) => {
   }
 });
 
-router.post('/Rest_Chef', async (req, res) => {
+router.post("/Rest_Chef", async (req, res) => {
+  try {
+    const newRestChef = await db.Rest_Chef.create({
+      restaurant_id: req.body.restaurant_id,
+      chef_id: req.body.chef_id,
+    });
+    res.json(newRestChef);
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
+router.put("/Rest_Chef", async (req, res) => {
   try {
     await db.Rest_Chef.update(
       {
-        chef_id: req.body.chef_id
+        chef_id: req.body.chef_id,
       },
       {
         where: {
-          restaurant_id: req.body.restaurant_id
-        }
+          restaurant_id: req.body.restaurant_id,
+        },
       }
     );
-    res.send('Rest_Chef Successfully Updated');
+    res.send("Successfully Updated");
   } catch (err) {
     console.error(err);
-    res.error('Server error');
+    res.error("Server error");
+  }
+});
+
+router.delete("/Rest_Chef/:restaurant_id", async (req, res) => {
+  try {
+    await db.Rest_Chef.destroy({
+      where: {
+        restaurant_id: req.params.restaurant_id,
+      },
+    });
+    res.send("Successfully Deleted");
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
   }
 });
 
@@ -407,23 +434,51 @@ router.get('/Chefs/:chef_id', async (req, res) => {
   }
 });
 
-router.post('/Chefs', async (req, res) => {
+router.post("/Chefs", async (req, res) => {
+  try {
+    const newChef = await db.Chefs.create({
+      Chef_ID: req.body.Chef_ID,
+      Chef_fn: req.body.Chef_fn,
+      Chef_ln: req.body.Chef_ln,
+    });
+    res.json(newChef);
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
+router.put("/Chefs", async (req, res) => {
   try {
     await db.Chefs.update(
       {
-        chef_firstname: req.body.chef_firstname,
-        chef_lastname: req.body.chef_lastname
+        Chef_fn: req.body.Chef_fn,
+        Chef_ln: req.body.Chef_ln
       },
       {
         where: {
-          chef_id: req.body.chef_id
-        }
+          Chef_ID: req.body.Chef_ID
+        },
       }
     );
-    res.send('Chef Successfully Updated');
+    res.send("Successfully Updated");
   } catch (err) {
     console.error(err);
-    res.error('Server error');
+    res.error("Server error");
+  }
+});
+
+router.delete("/Chefs/:Chef_ID", async (req, res) => {
+  try {
+    await db.Chefs.destroy({
+      where: {
+        Chef_ID: req.params.Chef_ID,
+      },
+    });
+    res.send("Successfully Deleted");
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
   }
 });
 
