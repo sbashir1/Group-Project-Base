@@ -372,6 +372,19 @@ router.get('/Food/:food_id', async (req, res) => {
   }
 });
 
+router.post("/Food", async (req, res) => {
+  try {
+    const newFood = await db.Food.create({
+      food_id: req.body.food_id,
+    });
+    res.json(newFood);
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
+
 router.put('/Food', async (req, res) => {
   try {
     await db.Food.update(
@@ -388,6 +401,20 @@ router.put('/Food', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.error('Server error');
+  }
+});
+
+router.delete("/Food/:food_id", async (req, res) => {
+  try {
+    await db.Food.destroy({
+      where: {
+        food_id: req.params.food_id,
+      },
+    });
+    res.send("Successfully Deleted");
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
   }
 });
 
