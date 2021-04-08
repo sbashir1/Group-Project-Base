@@ -1,21 +1,22 @@
 export default (sequelize, DataTypes) => {
-  const Chefs = sequelize.define(
-    'Chefs',
+  const restMonus = sequelize.define(
+    'Rest_Monu',
     {
-      Chef_ID: {
+      restaurant_id: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        primaryKey: true
       },
-      Chef_fn: {
+      monument_id: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      Chef_ln: {
+      distance_apart: {
         type: DataTypes.STRING,
         allowNull: false
-      }
+      },
     },
     { freezeTableName: true, timestamps: false }
   );
-  return Chefs;
+  return restMonus;
 };
