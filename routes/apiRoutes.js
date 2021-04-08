@@ -178,19 +178,19 @@ router.delete("/rest_monu/:restaurant_id", async (req, res) => {
 /// ///////////////////////////////////
 /// ////////Monument Endpoints/////////
 /// //////////////////////////////////
-router.get('/monuments', async (req, res) => {
+router.get('/Monu', async (req, res) => {
   try {
-    const monuments = await db.monuments.findAll();
-    //res.send(monuments);
+    const monuments = await db.Monu.findAll();
+    res.send(monuments);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.get('/monuments/:Monument_ID', async (req, res) => {
+router.get('/Monu/:Monument_ID', async (req, res) => {
   try {
-    const monuments_a = await db.monuments.findAll({
+    const monuments_a = await db.Monu.findAll({
       where: {
         Monument_ID: req.params.Monument_ID
       }
@@ -202,11 +202,11 @@ router.get('/monuments/:Monument_ID', async (req, res) => {
   }
 });
 
-router.post("/monuments", async (req, res) => {
-  const monuments = await db.Rest.findAll();
+router.post("/Monu", async (req, res) => {
+  const monuments = await db.Monu.findAll();
   const currentId = (await monuments.length)+1;
   try {
-    const newMonument = await db.monuments.create({
+    const newMonument = await db.Monu.create({
       Monument_ID: currentId,
       Monument_address: req.body.Monument_address,
       Monument_name: req.body.Monument_name,
@@ -219,10 +219,10 @@ router.post("/monuments", async (req, res) => {
   }
 });
 
-router.put('/monuments', async (req, res) => {
+router.put('/Monu', async (req, res) => {
   try {
     // N.B. - this is a good example of where to use code validation to confirm objects
-    await db.monuments.update(
+    await db.Monu.update(
       {
         Monument_address: req.body.Monument_address,
         Monument_name: req.body.Monument_name,
@@ -241,9 +241,9 @@ router.put('/monuments', async (req, res) => {
   }
 });
 
-router.delete("/monuments/:Monument_ID", async (req, res) => {
+router.delete("/Monu/:Monument_ID", async (req, res) => {
   try {
-    await db.monuments.destroy({
+    await db.Monu.destroy({
       where: {
         Monument_ID: req.params.Monument_ID,
       },
