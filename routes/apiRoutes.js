@@ -102,33 +102,48 @@ router.put('/Rest', async (req, res) => {
 /// ///////////////////////////////////////
 /// Restaurant Monument Endpoints//////////
 /// ///////////////////////////////////////
-router.get('/restaurant_monuments', async (req, res) => {
+router.get('/rest_monu', async (req, res) => {
   try {
-    const rest_monu = await db.restaurant_monuments.findAll();
-    res.json(restaurant_monuments);
+    const restMonu = await db.rest_monu.findAll();
+    res.json(rest_monu);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.get('/restaurant_monuments/:restaurant_id', async (req, res) => {
+router.get('/rest_monu/:restaurant_id', async (req, res) => {
   try {
-    const rest_monuments = await db.restaurant_monuments.findAll({
+    const restMonu = await db.rest_monu.findAll({
       where: {
         restaurant_id: req.params.restaurant_id
       }
     });
-    res.json(restaurant_monuments);
+    res.json(restMonu);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.put('/restaurant_monuments', async (req, res) => {
+router.post("/rest_monu", async (req, res) => {
+  const currentId = (await rests.length) + 1;
   try {
-    await db.restaurant_monuments.update(
+    const newRestMonu = await db.rest_monu.create({
+      restaurant_id: currentId,
+      monument_id: req.body.monument_id,
+      distance_apart: req.body.distance_apart,
+    });
+    res.json(newRestMonu);
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
+router.put('/rest_monu', async (req, res) => {
+  try {
+    await db.rest_monu.update(
       {
         monument_id: req.body.monument_id,
         distance_apart: req.body.distance_apart
@@ -146,39 +161,70 @@ router.put('/restaurant_monuments', async (req, res) => {
   }
 });
 
+router.delete("/rest_monu/:restaurant_id", async (req, res) => {
+  try {
+    await db.rest_monu.destroy({
+      where: {
+        restaurant_id: req.params.restaurant_id,
+      },
+    });
+    res.send("Successfully Deleted");
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
 /// ///////////////////////////////////
 /// ////////Monument Endpoints/////////
 /// //////////////////////////////////
-router.get('/Monuments', async (req, res) => {
+router.get('/monuments', async (req, res) => {
   try {
-    const monument = await db.Monuments.findAll();
-    res.send(monument);
+    const monuments = await db.monuments.findAll();
+    //res.send(monuments);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.get('/Monuments/:Monument_ID', async (req, res) => {
+router.get('/monuments/:Monument_ID', async (req, res) => {
   try {
-    const monument_id = await db.Monuments.findAll({
+    const monuments_a = await db.monuments.findAll({
       where: {
         Monument_ID: req.params.Monument_ID
       }
     });
-    res.json(Monuments);
+    res.json(monuments_a);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.put('/Monuments', async (req, res) => {
+router.post("/monuments", async (req, res) => {
+  const monuments = await db.Rest.findAll();
+  const currentId = (await monuments.length)+1;
+  try {
+    const newMonument = await db.monuments.create({
+      Monument_ID: currentId,
+      Monument_address: req.body.Monument_address,
+      Monument_name: req.body.Monument_name,
+      Monument_zip: req.body.Monument_zip,
+    });
+    res.json(newMonument);
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
+router.put('/monuments', async (req, res) => {
   try {
     // N.B. - this is a good example of where to use code validation to confirm objects
-    await db.Monuments.update(
+    await db.monuments.update(
       {
-        Monument_address: req.body.Monument_adress,
+        Monument_address: req.body.Monument_address,
         Monument_name: req.body.Monument_name,
         Monument_zip: req.body.Monument_zip,
       },
@@ -192,6 +238,20 @@ router.put('/Monuments', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.error('Server error');
+  }
+});
+
+router.delete("/monuments/:Monument_ID", async (req, res) => {
+  try {
+    await db.monuments.destroy({
+      where: {
+        Monument_ID: req.params.Monument_ID,
+      },
+    });
+    res.send("Successfully Deleted");
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
   }
 });
 
@@ -360,22 +420,49 @@ router.get('/Rest_Chef/:restaurant_id', async (req, res) => {
   }
 });
 
-router.post('/Rest_Chef', async (req, res) => {
+router.post("/Rest_Chef", async (req, res) => {
+  try {
+    const newRestChef = await db.Rest_Chef.create({
+      restaurant_id: req.body.restaurant_id,
+      chef_id: req.body.chef_id,
+    });
+    res.json(newRestChef);
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
+router.put("/Rest_Chef", async (req, res) => {
   try {
     await db.Rest_Chef.update(
       {
-        chef_id: req.body.chef_id
+        chef_id: req.body.chef_id,
       },
       {
         where: {
-          restaurant_id: req.body.restaurant_id
-        }
+          restaurant_id: req.body.restaurant_id,
+        },
       }
     );
-    res.send('Rest_Chef Successfully Updated');
+    res.send("Successfully Updated");
   } catch (err) {
     console.error(err);
-    res.error('Server error');
+    res.error("Server error");
+  }
+});
+
+router.delete("/Rest_Chef/:restaurant_id", async (req, res) => {
+  try {
+    await db.Rest_Chef.destroy({
+      where: {
+        restaurant_id: req.params.restaurant_id,
+      },
+    });
+    res.send("Successfully Deleted");
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
   }
 });
 
@@ -407,23 +494,51 @@ router.get('/Chefs/:chef_id', async (req, res) => {
   }
 });
 
-router.post('/Chefs', async (req, res) => {
+router.post("/Chefs", async (req, res) => {
+  try {
+    const newChef = await db.Chefs.create({
+      Chef_ID: req.body.Chef_ID,
+      Chef_fn: req.body.Chef_fn,
+      Chef_ln: req.body.Chef_ln,
+    });
+    res.json(newChef);
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
+router.put("/Chefs", async (req, res) => {
   try {
     await db.Chefs.update(
       {
-        chef_firstname: req.body.chef_firstname,
-        chef_lastname: req.body.chef_lastname
+        Chef_fn: req.body.Chef_fn,
+        Chef_ln: req.body.Chef_ln
       },
       {
         where: {
-          chef_id: req.body.chef_id
-        }
+          Chef_ID: req.body.Chef_ID
+        },
       }
     );
-    res.send('Chef Successfully Updated');
+    res.send("Successfully Updated");
   } catch (err) {
     console.error(err);
-    res.error('Server error');
+    res.error("Server error");
+  }
+});
+
+router.delete("/Chefs/:Chef_ID", async (req, res) => {
+  try {
+    await db.Chefs.destroy({
+      where: {
+        Chef_ID: req.params.Chef_ID,
+      },
+    });
+    res.send("Successfully Deleted");
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
   }
 });
 
