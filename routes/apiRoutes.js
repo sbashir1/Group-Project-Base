@@ -315,7 +315,7 @@ router.get('/Awards/:award_id', async (req, res) => {
   try {
     const awards = await db.Awards.findAll({
       where: {
-        award_id: req.params.award_id
+        Awards_ID: req.params.Awards_ID
       }
     });
     res.json(awards);
@@ -329,12 +329,12 @@ router.post('/Awards', async (req, res) => {
   try {
     await db.Awards.update(
       {
-        award_id: req.body.award_id,
-        award_name: req.body.award_name,
+        Awards_ID: req.body.Awards_ID,
+        Award_name: req.body.Award_name,
       },
       {
         where: {
-          award_id: req.body.award_id
+          Awards_ID: req.body.Awards_ID
         }
       }
     );

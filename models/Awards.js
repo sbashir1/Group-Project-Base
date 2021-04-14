@@ -1,17 +1,21 @@
-export default (sequelize, DataTypes) => {
+const { DataTypes } = require("sequelize");
+export default (sequelize, DataTypes) => { //do i need "class Awards" here?
   const Awards = sequelize.define(
     'Awards',
     {
-      award_id: {
-        type: DataTypes.INTEGER,
+      Awards_ID: { //model attribute
+        type: DataTypes.INTEGER, //data type
         allowNull: false
       },
-      award_name: {
-        type: DataTypes.STRING,
+      Award_name: { //model attribute
+        type: DataTypes.STRING, //data type
         allowNull: false
       }
     },
-    { freezeTableName: true, timestamps: false }
+    { freezeTableName: true, timestamps: false } //no autopluralization
   );
-  return Awards;
+  return Awards; //returns model
 };
+
+//primaryKey: true
+//autoincrement: true
