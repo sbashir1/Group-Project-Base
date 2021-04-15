@@ -105,8 +105,8 @@ router.put('/Rest', async (req, res) => {
 /// ///////////////////////////////////////
 router.get('/rest_monu', async (req, res) => {
   try {
-    const restMonu = await db.rest_monu.findAll();
-    res.json(rest_monu);
+    const restMonu = await db.Rest_Monu.findAll(); 
+    res.json(restMonu);
   } catch (err) {
     console.error(err);
     res.error('Server error');
@@ -115,7 +115,7 @@ router.get('/rest_monu', async (req, res) => {
 
 router.get('/rest_monu/:restaurant_id', async (req, res) => {
   try {
-    const restMonu = await db.rest_monu.findAll({
+    const restMonu = await db.Rest_Monu.findAll({
       where: {
         restaurant_id: req.params.restaurant_id
       }
@@ -130,7 +130,7 @@ router.get('/rest_monu/:restaurant_id', async (req, res) => {
 router.post("/rest_monu", async (req, res) => {
   const currentId = (await rests.length) + 1;
   try {
-    const newRestMonu = await db.rest_monu.create({
+    const newRestMonu = await db.Rest_Monu.create({
       restaurant_id: currentId,
       monument_id: req.body.monument_id,
       distance_apart: req.body.distance_apart,
@@ -144,7 +144,7 @@ router.post("/rest_monu", async (req, res) => {
 
 router.put('/rest_monu', async (req, res) => {
   try {
-    await db.rest_monu.update(
+    await db.Rest_Monu.update(
       {
         monument_id: req.body.monument_id,
         distance_apart: req.body.distance_apart
@@ -164,7 +164,7 @@ router.put('/rest_monu', async (req, res) => {
 
 router.delete("/rest_monu/:restaurant_id", async (req, res) => {
   try {
-    await db.rest_monu.destroy({
+    await db.Rest_Monu.destroy({
       where: {
         restaurant_id: req.params.restaurant_id,
       },
@@ -424,18 +424,17 @@ router.delete("/Food/:food_id", async (req, res) => {
 /// ////////Restaurant Chefs Endpoints//////////
 /// //////////////////////////////////////////
 
-router.get('/RestChef', async (req, res) => {
+router.get('/restChef', async (req, res) => {
   try {
     const restChef = await db.RestChef.findAll();
-    const reply = restChef.length > 0 ? { data: restChef } : { message: 'no results found' };
-    res.json(reply);
+    res.json(restChef);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.get('/RestChef/:restaurant_id', async (req, res) => {
+router.get('/restChef/:restaurant_id', async (req, res) => {
   try {
     const restChef = await db.RestChef.findAll({
       where: {
