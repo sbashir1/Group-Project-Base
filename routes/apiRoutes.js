@@ -3,6 +3,7 @@ import express from 'express';
 import sequelize from 'sequelize';
 
 import db from '../database/initializeDB.js';
+import Awards from '../models/Awards.js';
 
 const router = express.Router();
 
@@ -60,19 +61,6 @@ router.post('/Rest', async (req, res) => {
   }
 });
 
-// router.delete('/dining/:hall_id', async (req, res) => {
-//   try {
-//     await db.DiningHall.destroy({
-//       where: {
-//         hall_id: req.params.hall_id
-//       }
-//     });
-//     res.send('Successfully Deleted');
-//   } catch (err) {
-//     console.error(err);
-//     res.error('Server error');
-//   }
-// });
 
 router.put('/Rest', async (req, res) => {
   try {
@@ -90,44 +78,73 @@ router.put('/Rest', async (req, res) => {
           restaurant_id: req.body.restaurant_id
         }
       }
-    );
-    res.send('Successfully Updated');
-  } catch (err) {
-    console.error(err);
-    res.error('Server error');
-  }
-});
+      );
+      res.send('Successfully Updated');
+    } catch (err) {
+      console.error(err);
+      res.error('Server error');
+    }
+  });
+
+  router.delete('/Rest/:food_id', async (req, res) => {
+    try {
+      await db.Rest.destroy({
+        where: {
+          food_id: req.params.food_id
+        }
+      });
+      res.send('Successfully Deleted');
+    } catch (err) {
+      console.error(err);
+      res.error('Server error');
+    }
+  });
 
 /// ///////////////////////////////////////
 /// Restaurant Monument Endpoints//////////
 /// ///////////////////////////////////////
-router.get('/restaurant_monuments', async (req, res) => {
+router.get('/rest_monu', async (req, res) => {
   try {
-    const rest_monu = await db.restaurant_monuments.findAll();
-    res.json(restaurant_monuments);
+    const restMonu = await db.rest_monu.findAll();
+    res.json(rest_monu);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.get('/restaurant_monuments/:restaurant_id', async (req, res) => {
+router.get('/rest_monu/:restaurant_id', async (req, res) => {
   try {
-    const rest_monuments = await db.restaurant_monuments.findAll({
+    const restMonu = await db.rest_monu.findAll({
       where: {
         restaurant_id: req.params.restaurant_id
       }
     });
-    res.json(restaurant_monuments);
+    res.json(restMonu);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.put('/restaurant_monuments', async (req, res) => {
+router.post("/rest_monu", async (req, res) => {
+  const currentId = (await rests.length) + 1;
   try {
-    await db.restaurant_monuments.update(
+    const newRestMonu = await db.rest_monu.create({
+      restaurant_id: currentId,
+      monument_id: req.body.monument_id,
+      distance_apart: req.body.distance_apart,
+    });
+    res.json(newRestMonu);
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
+router.put('/rest_monu', async (req, res) => {
+  try {
+    await db.rest_monu.update(
       {
         monument_id: req.body.monument_id,
         distance_apart: req.body.distance_apart
@@ -145,39 +162,70 @@ router.put('/restaurant_monuments', async (req, res) => {
   }
 });
 
+router.delete("/rest_monu/:restaurant_id", async (req, res) => {
+  try {
+    await db.rest_monu.destroy({
+      where: {
+        restaurant_id: req.params.restaurant_id,
+      },
+    });
+    res.send("Successfully Deleted");
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
 /// ///////////////////////////////////
 /// ////////Monument Endpoints/////////
 /// //////////////////////////////////
-router.get('/Monuments', async (req, res) => {
+router.get('/monu', async (req, res) => {
   try {
-    const monument = await db.Monuments.findAll();
-    res.send(monument);
+    const monuments = await db.Monu.findAll();
+    res.send(monuments);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.get('/Monuments/:Monument_ID', async (req, res) => {
+router.get('/monu/:Monument_ID', async (req, res) => {
   try {
-    const monument_id = await db.Monuments.findAll({
+    const monuments_a = await db.Monu.findAll({
       where: {
         Monument_ID: req.params.Monument_ID
       }
     });
-    res.json(Monuments);
+    res.json(monuments_a);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.put('/Monuments', async (req, res) => {
+router.post("/monu", async (req, res) => {
+  const monuments = await db.Monu.findAll();
+  const currentId = (await monuments.length)+1;
+  try {
+    const newMonument = await db.Monu.create({
+      Monument_ID: currentId,
+      Monument_address: req.body.Monument_address,
+      Monument_name: req.body.Monument_name,
+      Monument_zip: req.body.Monument_zip,
+    });
+    res.json(newMonument);
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
+router.put('/monu', async (req, res) => {
   try {
     // N.B. - this is a good example of where to use code validation to confirm objects
-    await db.Monuments.update(
+    await db.Monu.update(
       {
-        Monument_address: req.body.Monument_adress,
+        Monument_address: req.body.Monument_address,
         Monument_name: req.body.Monument_name,
         Monument_zip: req.body.Monument_zip,
       },
@@ -194,31 +242,58 @@ router.put('/Monuments', async (req, res) => {
   }
 });
 
+router.delete("/monu/:Monument_ID", async (req, res) => {
+  try {
+    await db.Monu.destroy({
+      where: {
+        Monument_ID: req.params.Monument_ID,
+      },
+    });
+    res.send("Successfully Deleted");
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
 /// /////////////////////////////////
 /// Restaurants Awards Endpoints/////
 /// /////////////////////////////////
-
-router.get('/rest_award', async (req, res) => {
+router.get('/restaurant_award', async (req, res) => {
   try {
-    const rest_awards = await db.restaurantsandmonuments.findAll();
-    const reply = rest_awards.length > 0 ? { data: rest_awards } : { message: 'no results found' };
-    res.json(reply);
+    const rest_awards = await db.restaurant_award.findAll();
+    res.json(rest_awards);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
-router.post('/rest_award', async (req, res) => {
-  const rest_awards = await db.restaurantsandmonuments.findAll();
-  const currentId = (await rest_awards.length) + 1;
+router.get('/restaurant_award/:restaurant_id', async (req, res) => {
   try {
-    const newAwards = await db.restaurantsandmonuments.create({
-      restaurant_id: currentId,
-      award_id: currentId,
-      years_won: req.body.years_won,
-      star_rating: req.body.star_rating,
+    const rest_awards = await db.restaurant_award.findAll({
+      where: {
+        restaurant_id: req.params.restaurant_id
+      }
     });
-    res.json(newAwards);
+    res.json(rest_awards);
+  } catch (err) {
+    console.error(err);
+    res.error('Server error');
+  }
+});
+router.post('/restaurant_award', async (req, res) => {
+  try {
+    await db.restaurant_award.update(
+      {
+        award_id: req.body.award_id
+      },
+      {
+        where: {
+          restaurant_id: req.body.restaurant_id
+        }
+      }
+    );
+    res.send('Successfully Updated');
   } catch (err) {
     console.error(err);
     res.error('Server error');
@@ -228,61 +303,48 @@ router.post('/rest_award', async (req, res) => {
 /// ////////////////////////////////////////////
 /// ////////////Awards Endpoints///////////////
 /// //////////////////////////////////////////
-router.get('/awards', async (req, res) => {
+router.get('/Awards', async (req, res) => {
   try {
-    const awards = await db.restaurantsandmonuments.findAll();
-    const reply = awards.length > 0 ? { data: awards } : { message: 'no results found' };
-    res.json(reply);
+    const awards = await db.Awards.findAll();
+    res.json(awards);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
-router.get('/awards/:award_id', async (req, res) => {
+router.get('/Awards/:award_id', async (req, res) => {
   try {
-    const award = await db.restaurantsandmonuments.findAll({
+    const awards = await db.Awards.findAll({
       where: {
-        award_id: req.params.award_id
+        Awards_ID: req.params.Awards_ID
       }
     });
-
-    res.json(award);
+    res.json(awards);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
-router.post('/awards', async (req, res) => {
-  const awards = await db.restaurantsandmonuments.findAll();
-  const currentId = (await awards.length) + 1;
+
+router.post('/Awards', async (req, res) => {
   try {
-    const newAwards = await db.restaurantsandmonuments.create({
-      award_id: currentId,
-      award_name: req.body.award_name,
-    });
-    res.json(newAwards);
+    await db.Awards.update(
+      {
+        Awards_ID: req.body.Awards_ID,
+        Award_name: req.body.Award_name,
+      },
+      {
+        where: {
+          Awards_ID: req.body.Awards_ID
+        }
+      }
+    );
+    res.send('Successfully Updated');
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
-
-router.post('/awards/:award_id', async (req, res) => {
-  const awards = await db.restaurantsandmonuments.findAll();
-  const currentId = (await awards.length) + 1;
-  try {
-    const newAwards = await db.restaurantsandmonuments.create({
-      award_id: currentId,
-      award_name: req.body.award_name,
-    });
-    res.json(newAwards);
-  } catch (err) {
-    console.error(err);
-    res.error('Server error');
-  }
-});
-
-
 /// ///////////////////////////////////
 /// /////////Food Endpoints////////////
 /// //////////////////////////////////
@@ -311,6 +373,19 @@ router.get('/Food/:food_id', async (req, res) => {
   }
 });
 
+router.post("/Food", async (req, res) => {
+  try {
+    const newFood = await db.Food.create({
+      food_id: req.body.food_id,
+    });
+    res.json(newFood);
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
+
 router.put('/Food', async (req, res) => {
   try {
     await db.Food.update(
@@ -327,6 +402,20 @@ router.put('/Food', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.error('Server error');
+  }
+});
+
+router.delete("/Food/:food_id", async (req, res) => {
+  try {
+    await db.Food.destroy({
+      where: {
+        food_id: req.params.food_id,
+      },
+    });
+    res.send("Successfully Deleted");
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
   }
 });
 

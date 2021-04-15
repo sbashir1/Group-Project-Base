@@ -1,21 +1,21 @@
-export default (sequelize, DataTypes) => {
-  const Chefs = sequelize.define(
-    'Chefs',
+export default (sequelize, DataTypes) => { //do i need "class Awards" here?
+  const Awards = sequelize.define(
+    'Awards',
     {
-      Chef_ID: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+      Awards_ID: { //model attribute
+        type: DataTypes.INTEGER, //data type
+        allowNull: false,
+        primaryKey: true
       },
-      Chef_fn: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      Chef_ln: {
-        type: DataTypes.STRING,
-        allowNull: false
+      Award_name: { //model attribute
+        type: DataTypes.STRING, //data type
+        allowNull: true
       }
     },
-    { freezeTableName: true, timestamps: false }
+    { freezeTableName: true, timestamps: false } //no autopluralization
   );
-  return Chefs;
+  return Awards; //returns model
 };
+
+//primaryKey: true
+//autoincrement: true

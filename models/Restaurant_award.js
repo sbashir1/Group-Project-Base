@@ -1,26 +1,27 @@
 export default (sequelize, DataTypes) => {
-  const monus = sequelize.define(
-    'monuments',
+  const restaurant_award = sequelize.define(
+    'restaurant_award',
     {
-      Monument_ID: {
+      restaurant_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true
       },
-      Monument_address: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      Monument_name: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      Monument_zip: {
+      award_id: {
         type: DataTypes.INTEGER,
         allowNull: false
-      }
+      },
+      years_won: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      star_rating: {
+        type: DataTypes.DOUBLE,
+        allowNull: false
+      },
+      
     },
     { freezeTableName: true, timestamps: false }
   );
-  return monus;
+  return restaurant_award;
 };
