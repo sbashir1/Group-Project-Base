@@ -179,7 +179,7 @@ router.delete("/rest_monu/:restaurant_id", async (req, res) => {
 /// ///////////////////////////////////
 /// ////////Monument Endpoints/////////
 /// //////////////////////////////////
-router.get('/Monu', async (req, res) => {
+router.get('/monu', async (req, res) => {
   try {
     const monuments = await db.Monu.findAll();
     res.send(monuments);
@@ -189,7 +189,7 @@ router.get('/Monu', async (req, res) => {
   }
 });
 
-router.get('/Monu/:Monument_ID', async (req, res) => {
+router.get('/monu/:Monument_ID', async (req, res) => {
   try {
     const monuments_a = await db.Monu.findAll({
       where: {
@@ -203,7 +203,7 @@ router.get('/Monu/:Monument_ID', async (req, res) => {
   }
 });
 
-router.post("/Monu", async (req, res) => {
+router.post("/monu", async (req, res) => {
   const monuments = await db.Monu.findAll();
   const currentId = (await monuments.length)+1;
   try {
@@ -220,7 +220,7 @@ router.post("/Monu", async (req, res) => {
   }
 });
 
-router.put('/Monu', async (req, res) => {
+router.put('/monu', async (req, res) => {
   try {
     // N.B. - this is a good example of where to use code validation to confirm objects
     await db.Monu.update(
@@ -242,7 +242,7 @@ router.put('/Monu', async (req, res) => {
   }
 });
 
-router.delete("/Monu/:Monument_ID", async (req, res) => {
+router.delete("/monu/:Monument_ID", async (req, res) => {
   try {
     await db.Monu.destroy({
       where: {

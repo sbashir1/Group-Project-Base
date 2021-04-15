@@ -1,6 +1,6 @@
 export default (sequelize, DataTypes) => {
   const restMonus = sequelize.define(
-    'Rest_Monu',
+    'rest_monu',
     {
       restaurant_id: {
         type: DataTypes.INTEGER,
@@ -8,7 +8,7 @@ export default (sequelize, DataTypes) => {
         primaryKey: true
       },
       monument_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false
       },
       distance_apart: {

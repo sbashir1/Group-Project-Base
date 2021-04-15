@@ -1,6 +1,6 @@
 export default (sequelize, DataTypes) => {
-  const Monus = sequelize.define(
-    'Monuments',
+  const monus = sequelize.define(
+    'monuments',
     {
       Monument_ID: {
         type: DataTypes.INTEGER,
@@ -22,5 +22,5 @@ export default (sequelize, DataTypes) => {
     },
     { freezeTableName: true, timestamps: false }
   );
-  return Monus;
+  return monus;
 };
