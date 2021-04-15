@@ -3,7 +3,7 @@ import express from 'express';
 import sequelize from 'sequelize';
 
 import db from '../database/initializeDB.js';
-import Awards from '../models/Awards.js';
+import Awards from '../models/awards.js';
 
 const router = express.Router();
 
@@ -259,18 +259,18 @@ router.delete("/monu/:Monument_ID", async (req, res) => {
 /// /////////////////////////////////
 /// Restaurants Awards Endpoints/////
 /// /////////////////////////////////
-router.get('/Restaurant_award', async (req, res) => {
+router.get('/restaurant_award', async (req, res) => {
   try {
-    const rest_awards = await db.Restaurant_award.findAll();
+    const rest_awards = await db.restaurant_award.findAll();
     res.json(rest_awards);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
-router.get('/Restaurant_award/:restaurant_id', async (req, res) => {
+router.get('/restaurant_award/:restaurant_id', async (req, res) => {
   try {
-    const rest_awards = await db.Restaurant_award.findAll({
+    const rest_awards = await db.restaurant_award.findAll({
       where: {
         restaurant_id: req.params.restaurant_id
       }
@@ -281,9 +281,9 @@ router.get('/Restaurant_award/:restaurant_id', async (req, res) => {
     res.error('Server error');
   }
 });
-router.post('/Restaurant_award', async (req, res) => {
+router.post('/restaurant_award', async (req, res) => {
   try {
-    await db.Restaurant_award.update(
+    await db.restaurant_award.update(
       {
         award_id: req.body.award_id
       },
@@ -303,18 +303,18 @@ router.post('/Restaurant_award', async (req, res) => {
 /// ////////////////////////////////////////////
 /// ////////////Awards Endpoints///////////////
 /// //////////////////////////////////////////
-router.get('/Awards', async (req, res) => {
+router.get('/awards', async (req, res) => {
   try {
-    const awards = await db.Awards.findAll();
+    const awards = await db.awards.findAll();
     res.json(awards);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
-router.get('/Awards/:award_id', async (req, res) => {
+router.get('/awards/:award_id', async (req, res) => {
   try {
-    const awards = await db.Awards.findAll({
+    const awards = await db.awards.findAll({
       where: {
         Awards_ID: req.params.Awards_ID
       }
@@ -326,9 +326,9 @@ router.get('/Awards/:award_id', async (req, res) => {
   }
 });
 
-router.post('/Awards', async (req, res) => {
+router.post('/awards', async (req, res) => {
   try {
-    await db.Awards.update(
+    await db.awards.update(
       {
         Awards_ID: req.body.Awards_ID,
         Award_name: req.body.Award_name,
