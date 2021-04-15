@@ -3,7 +3,7 @@ import express from 'express';
 import sequelize from 'sequelize';
 
 import db from '../database/initializeDB.js';
-import Awards from '../models/awards.js';
+import Awards from '../models/Awards.js';
 
 const router = express.Router();
 
@@ -303,18 +303,18 @@ router.post('/restaurant_award', async (req, res) => {
 /// ////////////////////////////////////////////
 /// ////////////Awards Endpoints///////////////
 /// //////////////////////////////////////////
-router.get('/awards', async (req, res) => {
+router.get('/Awards', async (req, res) => {
   try {
-    const awards = await db.awards.findAll();
+    const awards = await db.Awards.findAll();
     res.json(awards);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
-router.get('/awards/:award_id', async (req, res) => {
+router.get('/Awards/:award_id', async (req, res) => {
   try {
-    const awards = await db.awards.findAll({
+    const awards = await db.Awards.findAll({
       where: {
         Awards_ID: req.params.Awards_ID
       }
@@ -326,9 +326,9 @@ router.get('/awards/:award_id', async (req, res) => {
   }
 });
 
-router.post('/awards', async (req, res) => {
+router.post('/Awards', async (req, res) => {
   try {
-    await db.awards.update(
+    await db.Awards.update(
       {
         Awards_ID: req.body.Awards_ID,
         Award_name: req.body.Award_name,
