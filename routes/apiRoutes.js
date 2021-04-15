@@ -335,19 +335,20 @@ router.put('/Food', async (req, res) => {
 /// ////////Restaurant Chefs Endpoints//////////
 /// //////////////////////////////////////////
 
-router.get('/Rest_Chef', async (req, res) => {
+router.get('/RestChef', async (req, res) => {
   try {
-    const restChef = await db.Rest_Chef.findAll();
-    res.json(restChef);
+    const restChef = await db.RestChef.findAll();
+    const reply = restChef.length > 0 ? { data: restChef } : { message: 'no results found' };
+    res.json(reply);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.get('/Rest_Chef/:restaurant_id', async (req, res) => {
+router.get('/RestChef/:restaurant_id', async (req, res) => {
   try {
-    const restChef = await db.Rest_Chef.findAll({
+    const restChef = await db.RestChef.findAll({
       where: {
         restaurant_id: req.params.restaurant_id
       }
@@ -359,9 +360,9 @@ router.get('/Rest_Chef/:restaurant_id', async (req, res) => {
   }
 });
 
-router.post("/Rest_Chef", async (req, res) => {
+router.post("/restChef", async (req, res) => {
   try {
-    const newRestChef = await db.Rest_Chef.create({
+    const newRestChef = await db.RestChef.create({
       restaurant_id: req.body.restaurant_id,
       chef_id: req.body.chef_id,
     });
@@ -372,9 +373,9 @@ router.post("/Rest_Chef", async (req, res) => {
   }
 });
 
-router.put("/Rest_Chef", async (req, res) => {
+router.put("/restChef", async (req, res) => {
   try {
-    await db.Rest_Chef.update(
+    await db.RestChef.update(
       {
         chef_id: req.body.chef_id,
       },
@@ -391,9 +392,9 @@ router.put("/Rest_Chef", async (req, res) => {
   }
 });
 
-router.delete("/Rest_Chef/:restaurant_id", async (req, res) => {
+router.delete("/restChef/:restaurant_id", async (req, res) => {
   try {
-    await db.Rest_Chef.destroy({
+    await db.RestChef.destroy({
       where: {
         restaurant_id: req.params.restaurant_id,
       },
@@ -411,22 +412,22 @@ router.delete("/Rest_Chef/:restaurant_id", async (req, res) => {
 
 router.get('/Chefs', async (req, res) => {
   try {
-    const chefs = await db.Chefs.findAll();
-    res.json(chefs);
+    const Chef = await db.Chefs.findAll();
+    res.json(Chef);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.get('/Chefs/:chef_id', async (req, res) => {
+router.get('/Chefs/:Chef_ID', async (req, res) => {
   try {
-    const chefs = await db.Chefs.findAll({
+    const Chef = await db.Chefs.findAll({
       where: {
-        chef_id: req.params.chef_id
+        Chef_ID: req.params.Chef_ID
       }
     });
-    res.json(chefs);
+    res.json(Chef);
   } catch (err) {
     console.error(err);
     res.error('Server error');

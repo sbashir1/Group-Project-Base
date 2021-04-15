@@ -7,6 +7,7 @@ export default (sequelize, DataTypes) => {
       },
       chef_id: {
         type: DataTypes.INTEGER,
+        primaryKey: true
       }
     },
     { freezeTableName: true, timestamps: false }
