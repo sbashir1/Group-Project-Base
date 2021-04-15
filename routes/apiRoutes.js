@@ -61,19 +61,6 @@ router.post('/Rest', async (req, res) => {
   }
 });
 
-// router.delete('/dining/:hall_id', async (req, res) => {
-//   try {
-//     await db.DiningHall.destroy({
-//       where: {
-//         hall_id: req.params.hall_id
-//       }
-//     });
-//     res.send('Successfully Deleted');
-//   } catch (err) {
-//     console.error(err);
-//     res.error('Server error');
-//   }
-// });
 
 router.put('/Rest', async (req, res) => {
   try {
@@ -91,13 +78,27 @@ router.put('/Rest', async (req, res) => {
           restaurant_id: req.body.restaurant_id
         }
       }
-    );
-    res.send('Successfully Updated');
-  } catch (err) {
-    console.error(err);
-    res.error('Server error');
-  }
-});
+      );
+      res.send('Successfully Updated');
+    } catch (err) {
+      console.error(err);
+      res.error('Server error');
+    }
+  });
+
+  router.delete('/Rest/:food_id', async (req, res) => {
+    try {
+      await db.Rest.destroy({
+        where: {
+          food_id: req.params.food_id
+        }
+      });
+      res.send('Successfully Deleted');
+    } catch (err) {
+      console.error(err);
+      res.error('Server error');
+    }
+  });
 
 /// ///////////////////////////////////////
 /// Restaurant Monument Endpoints//////////
