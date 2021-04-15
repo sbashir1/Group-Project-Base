@@ -1,6 +1,6 @@
 export default (sequelize, DataTypes) => {
-  const Restaurant_award = sequelize.define(
-    'Restaurant_award',
+  const restaurant_award = sequelize.define(
+    'restaurant_award',
     {
       restaurant_id: {
         type: DataTypes.INTEGER,
@@ -23,5 +23,5 @@ export default (sequelize, DataTypes) => {
     },
     { freezeTableName: true, timestamps: false }
   );
-  return Restaurant_award;
+  return restaurant_award;
 };
