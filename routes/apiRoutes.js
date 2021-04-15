@@ -258,18 +258,18 @@ router.delete("/monuments/:Monument_ID", async (req, res) => {
 /// /////////////////////////////////
 /// Restaurants Awards Endpoints/////
 /// /////////////////////////////////
-router.get('/Rest_awards', async (req, res) => {
+router.get('/Restaurant_award', async (req, res) => {
   try {
-    const rest_awards = await db.Rest_awards.findAll();
+    const rest_awards = await db.Restaurant_award.findAll();
     res.json(rest_awards);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
-router.get('/Rest_awards/:restaurant_id', async (req, res) => {
+router.get('/Restaurant_award/:restaurant_id', async (req, res) => {
   try {
-    const rest_awards = await db.Rest_awards.findAll({
+    const rest_awards = await db.Restaurant_award.findAll({
       where: {
         restaurant_id: req.params.restaurant_id
       }
@@ -280,9 +280,9 @@ router.get('/Rest_awards/:restaurant_id', async (req, res) => {
     res.error('Server error');
   }
 });
-router.post('/Rest_awards', async (req, res) => {
+router.post('/Restaurant_award', async (req, res) => {
   try {
-    await db.Rest_awards.update(
+    await db.Restaurant_award.update(
       {
         award_id: req.body.award_id
       },

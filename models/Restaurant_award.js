@@ -1,26 +1,27 @@
 export default (sequelize, DataTypes) => {
-  const Rest_awards = sequelize.define(
-    'Rest_awards',
+  const Restaurant_award = sequelize.define(
+    'Restaurant_award',
     {
-      Restaurant_ID: {
+      restaurant_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true
+      },
+      award_id: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      Award_ID: {
+      years_won: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      Years_won: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
-      Star_rating: {
-        type: DataTypes.INTEGER,
+      star_rating: {
+        type: DataTypes.DOUBLE,
         allowNull: false
       },
       
     },
     { freezeTableName: true, timestamps: false }
   );
-  return Rest_awards;
+  return Restaurant_award;
 };
