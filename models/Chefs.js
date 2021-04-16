@@ -4,7 +4,8 @@ export default (sequelize, DataTypes) => {
     {
       Chef_ID: {
         type: DataTypes.INTEGER,
-        primaryKey: true
+        primaryKey: true,
+        allowNull: false
       },
       Chef_fn: {
         type: DataTypes.STRING,
