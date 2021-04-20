@@ -14,9 +14,9 @@ router.get('/', (req, res) => {
 /// /////////////////////////////////
 /// ////Restaurant Endpoints////////
 /// /////////////////////////////////
-router.get('/Rest', async (req, res) => {
+router.get('/rest', async (req, res) => {
   try {
-    const rests = await db.Rest.findAll();
+    const rests = await db.rest.findAll();
     const reply = rests.length > 0 ? { data: rests } : { message: 'no results found' };
     res.json(reply);
   } catch (err) {
@@ -25,25 +25,25 @@ router.get('/Rest', async (req, res) => {
   }
 });
 
-router.get('/Rest/:restaurant_id', async (req, res) => {
+router.get('/rest/:restaurantID', async (req, res) => {
   try {
-    const rest = await db.Rest.findAll({
+    const getrest = await db.rest.findAll({
       where: {
         restaurant_id: req.params.restaurant_id
       }
     });
-    res.json(rest);
+    res.json(getrest);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.post('/Rest', async (req, res) => {
-  const rests = await db.Rest.findAll();
+router.post('/rest', async (req, res) => {
+  const rests = await db.rest.findAll();
   const currentId = (await rests.length) + 1;
   try {
-    const newRest = await db.Rest.create({
+    const newRest = await db.rest.create({
       restaurant_id: currentId,
       food_id: currentId,
       restaurent_name: req.body.restaurent_name,
@@ -62,9 +62,9 @@ router.post('/Rest', async (req, res) => {
 });
 
 
-router.put('/Rest', async (req, res) => {
+router.put('/rest', async (req, res) => {
   try {
-    await db.Rest.update(
+    await db.rest.update(
       {
         restaurent_name: req.body.restaurent_name,
         restaurant_street: req.body.restaurant_street,
@@ -86,9 +86,9 @@ router.put('/Rest', async (req, res) => {
     }
   });
 
-  router.delete('/Rest/:food_id', async (req, res) => {
+  router.delete('/rest/:foodID', async (req, res) => {
     try {
-      await db.Rest.destroy({
+      await db.rest.destroy({
         where: {
           food_id: req.params.food_id
         }
