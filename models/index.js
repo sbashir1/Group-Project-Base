@@ -1,4 +1,4 @@
-import award from './Awards.js';
+import awards from './awards.js';
 import Chefs from './Chefs.js';
 import Food from './Food.js';
 import Monu from './Monu.js';
