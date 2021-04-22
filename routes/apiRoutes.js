@@ -14,9 +14,9 @@ router.get('/', (req, res) => {
 /// /////////////////////////////////
 /// ////Restaurant Endpoints////////
 /// /////////////////////////////////
-router.get('/Rest', async (req, res) => {
+router.get('/rest', async (req, res) => {
   try {
-    const rests = await db.Rest.findAll();
+    const rests = await db.rest.findAll();
     const reply = rests.length > 0 ? { data: rests } : { message: 'no results found' };
     res.json(reply);
   } catch (err) {
@@ -25,25 +25,25 @@ router.get('/Rest', async (req, res) => {
   }
 });
 
-router.get('/Rest/:restaurant_id', async (req, res) => {
+router.get('/rest/:restaurantID', async (req, res) => {
   try {
-    const rest = await db.Rest.findAll({
+    const getrest = await db.rest.findAll({
       where: {
         restaurant_id: req.params.restaurant_id
       }
     });
-    res.json(rest);
+    res.json(getrest);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.post('/Rest', async (req, res) => {
-  const rests = await db.Rest.findAll();
+router.post('/rest', async (req, res) => {
+  const rests = await db.rest.findAll();
   const currentId = (await rests.length) + 1;
   try {
-    const newRest = await db.Rest.create({
+    const newRest = await db.rest.create({
       restaurant_id: currentId,
       food_id: currentId,
       restaurent_name: req.body.restaurent_name,
@@ -62,9 +62,9 @@ router.post('/Rest', async (req, res) => {
 });
 
 
-router.put('/Rest', async (req, res) => {
+router.put('/rest', async (req, res) => {
   try {
-    await db.Rest.update(
+    await db.rest.update(
       {
         restaurent_name: req.body.restaurent_name,
         restaurant_street: req.body.restaurant_street,
@@ -86,9 +86,9 @@ router.put('/Rest', async (req, res) => {
     }
   });
 
-  router.delete('/Rest/:food_id', async (req, res) => {
+  router.delete('/rest/:foodID', async (req, res) => {
     try {
-      await db.Rest.destroy({
+      await db.rest.destroy({
         where: {
           food_id: req.params.food_id
         }
@@ -103,7 +103,7 @@ router.put('/Rest', async (req, res) => {
 /// ///////////////////////////////////////
 /// Restaurant Monument Endpoints//////////
 /// ///////////////////////////////////////
-router.get('/rest_monu', async (req, res) => {
+router.get('/restaurantMonuments', async (req, res) => {
   try {
     const restMonu = await db.Rest_Monu.findAll(); 
     res.json(restMonu);
@@ -113,7 +113,7 @@ router.get('/rest_monu', async (req, res) => {
   }
 });
 
-router.get('/rest_monu/:restaurant_id', async (req, res) => {
+router.get('/restaurantMonuments/:restaurant_id', async (req, res) => {
   try {
     const restMonu = await db.Rest_Monu.findAll({
       where: {
@@ -127,7 +127,7 @@ router.get('/rest_monu/:restaurant_id', async (req, res) => {
   }
 });
 
-router.post("/rest_monu", async (req, res) => {
+router.post("/restaurantMonuments", async (req, res) => {
   const currentId = (await rests.length) + 1;
   try {
     const newRestMonu = await db.Rest_Monu.create({
@@ -142,7 +142,7 @@ router.post("/rest_monu", async (req, res) => {
   }
 });
 
-router.put('/rest_monu', async (req, res) => {
+router.put('/restaurantMonuments', async (req, res) => {
   try {
     await db.Rest_Monu.update(
       {
@@ -162,7 +162,7 @@ router.put('/rest_monu', async (req, res) => {
   }
 });
 
-router.delete("/rest_monu/:restaurant_id", async (req, res) => {
+router.delete("/restaurantMonuments/:restaurant_id", async (req, res) => {
   try {
     await db.Rest_Monu.destroy({
       where: {
@@ -179,7 +179,7 @@ router.delete("/rest_monu/:restaurant_id", async (req, res) => {
 /// ///////////////////////////////////
 /// ////////Monument Endpoints/////////
 /// //////////////////////////////////
-router.get('/monu', async (req, res) => {
+router.get('/monuments', async (req, res) => {
   try {
     const monuments = await db.Monu.findAll();
     res.send(monuments);
@@ -189,7 +189,7 @@ router.get('/monu', async (req, res) => {
   }
 });
 
-router.get('/monu/:Monument_ID', async (req, res) => {
+router.get('/monuments/:Monument_ID', async (req, res) => {
   try {
     const monuments_a = await db.Monu.findAll({
       where: {
@@ -203,7 +203,7 @@ router.get('/monu/:Monument_ID', async (req, res) => {
   }
 });
 
-router.post("/monu", async (req, res) => {
+router.post("/monuments", async (req, res) => {
   const monuments = await db.Monu.findAll();
   const currentId = (await monuments.length)+1;
   try {
@@ -220,7 +220,7 @@ router.post("/monu", async (req, res) => {
   }
 });
 
-router.put('/monu', async (req, res) => {
+router.put('/monuments', async (req, res) => {
   try {
     // N.B. - this is a good example of where to use code validation to confirm objects
     await db.Monu.update(
@@ -242,7 +242,7 @@ router.put('/monu', async (req, res) => {
   }
 });
 
-router.delete("/monu/:Monument_ID", async (req, res) => {
+router.delete("/monuments/:Monument_ID", async (req, res) => {
   try {
     await db.Monu.destroy({
       where: {
@@ -303,32 +303,32 @@ router.post('/restaurant_award', async (req, res) => {
 /// ////////////////////////////////////////////
 /// ////////////Awards Endpoints///////////////
 /// //////////////////////////////////////////
-router.get('/Awards', async (req, res) => {
+router.get('/awards', async (req, res) => {
   try {
-    const awards = await db.Awards.findAll();
-    res.json(awards);
+    const Awards = await db.awards.findAll();
+    res.json(Awards);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
-router.get('/Awards/:award_id', async (req, res) => {
+router.get('/awards/:award_id', async (req, res) => {
   try {
-    const awards = await db.Awards.findAll({
+    const Awards = await db.awards.findAll({
       where: {
         Awards_ID: req.params.Awards_ID
       }
     });
-    res.json(awards);
+    res.json(Awards);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.post('/Awards', async (req, res) => {
+router.post('/awards', async (req, res) => {
   try {
-    await db.Awards.update(
+    await db.awards.update(
       {
         Awards_ID: req.body.Awards_ID,
         Award_name: req.body.Award_name,
