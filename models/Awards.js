@@ -1,6 +1,6 @@
-export default (sequelize, DataTypes) => { //do i need "class Awards" here?
-  const award = sequelize.define(
-    'awards',
+export default (sequelize, DataTypes) => { 
+  const awards = sequelize.define(
+    'Awards',
     {
       Awards_ID: { //model attribute
         type: DataxTypes.INTEGER, //data type
@@ -14,7 +14,7 @@ export default (sequelize, DataTypes) => { //do i need "class Awards" here?
     },
     { freezeTableName: true, timestamps: false } //no autopluralization
   );
-  return award; //returns model
+  return awards; //returns model
 };
 
 //primaryKey: true
