@@ -303,32 +303,32 @@ router.post('/restaurant_award', async (req, res) => {
 /// ////////////////////////////////////////////
 /// ////////////Awards Endpoints///////////////
 /// //////////////////////////////////////////
-router.get('/Awards', async (req, res) => {
+router.get('/awards', async (req, res) => {
   try {
-    const awards = await db.Awards.findAll();
-    res.json(awards);
+    const Awards = await db.awards.findAll();
+    res.json(Awards);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
-router.get('/Awards/:award_id', async (req, res) => {
+router.get('/awards/:award_id', async (req, res) => {
   try {
-    const awards = await db.Awards.findAll({
+    const Awards = await db.awards.findAll({
       where: {
         Awards_ID: req.params.Awards_ID
       }
     });
-    res.json(awards);
+    res.json(Awards);
   } catch (err) {
     console.error(err);
     res.error('Server error');
   }
 });
 
-router.post('/Awards', async (req, res) => {
+router.post('/awards', async (req, res) => {
   try {
-    await db.Awards.update(
+    await db.awards.update(
       {
         Awards_ID: req.body.Awards_ID,
         Award_name: req.body.Award_name,
