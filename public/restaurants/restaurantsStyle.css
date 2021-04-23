@@ -81,3 +81,7 @@ label {
     font-size: 1.8rem;
     color: black;
 }
+
+.container {
+    margin-top: 300px;
+}
