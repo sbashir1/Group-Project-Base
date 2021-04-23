@@ -261,7 +261,7 @@ router.delete("/monuments/:Monument_ID", async (req, res) => {
 /// /////////////////////////////////
 router.get('/restaurant_award', async (req, res) => {
   try {
-    const rest_awards = await db.restaurant_award.findAll();
+    const rest_awards = await db.Restaurant_award.findAll();
     res.json(rest_awards);
   } catch (err) {
     console.error(err);
@@ -270,7 +270,7 @@ router.get('/restaurant_award', async (req, res) => {
 });
 router.get('/restaurant_award/:restaurant_id', async (req, res) => {
   try {
-    const rest_awards = await db.restaurant_award.findAll({
+    const rest_awards = await db.Restaurant_award.findAll({
       where: {
         restaurant_id: req.params.restaurant_id
       }
@@ -283,7 +283,7 @@ router.get('/restaurant_award/:restaurant_id', async (req, res) => {
 });
 router.post('/restaurant_award', async (req, res) => {
   try {
-    await db.restaurant_award.update(
+    await db.Restaurant_award.update(
       {
         award_id: req.body.award_id
       },
