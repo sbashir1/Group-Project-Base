@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 /// /////////////////////////////////
 router.get('/restaurant_info', async (req, res) => {
   try {
-    const rests = await db.restaurant_info.findAll();
+    const rests = await db.restaurantList.findAll();
     const reply = rests.length > 0 ? { data: rests } : { message: 'no results found' };
     res.json(reply);
   } catch (err) {
@@ -27,7 +27,7 @@ router.get('/restaurant_info', async (req, res) => {
 
 router.get('/restaurant_info/:restaurantID', async (req, res) => {
   try {
-    const getrest = await db.restaurant_info.findAll({
+    const getrest = await db.restaurantList.findAll({
       where: {
         restaurant_id: req.params.restaurant_id
       }
@@ -40,10 +40,10 @@ router.get('/restaurant_info/:restaurantID', async (req, res) => {
 });
 
 router.post('/restaurant_info', async (req, res) => {
-  const rests = await db.restaurant_info.findAll();
+  const rests = await db.restaurantList.findAll();
   const currentId = (await rests.length) + 1;
   try {
-    const newRest = await db.restaurant_info.create({
+    const newRest = await db.restaurantList.create({
       restaurant_id: currentId,
       food_id: currentId,
       restaurent_name: req.body.restaurent_name,
@@ -64,7 +64,7 @@ router.post('/restaurant_info', async (req, res) => {
 
 router.put('/restaurant_info', async (req, res) => {
   try {
-    await db.restaurant_info.update(
+    await db.restaurantList.update(
       {
         restaurent_name: req.body.restaurent_name,
         restaurant_street: req.body.restaurant_street,
@@ -88,7 +88,7 @@ router.put('/restaurant_info', async (req, res) => {
 
   router.delete('/restaurant_info/:foodID', async (req, res) => {
     try {
-      await db.restaurant_info.destroy({
+      await db.restaurantList.destroy({
         where: {
           food_id: req.params.food_id
         }
