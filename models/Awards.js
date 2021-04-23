@@ -3,7 +3,7 @@ export default (sequelize, DataTypes) => {
     'Awards',
     {
       Awards_ID: { //model attribute
-        type: DataxTypes.INTEGER, //data type
+        type: DataTypes.INTEGER, //data type
         allowNull: false,
         primaryKey: true
       },

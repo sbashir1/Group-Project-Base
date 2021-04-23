@@ -5,7 +5,7 @@ import Monu from './Monu.js';
 import RestAward from './Restaurant_award.js';
 import RestChef from './RestChef.js';
 import RestMonu from './Rest_Monu.js';
-import rest from './rest.js';
+import restaurantList from './restaurant_info.js';
 
 export default {
   awards,
@@ -15,5 +15,5 @@ export default {
   RestAward,
   RestChef,
   RestMonu,
-  rest
+  restaurantList
 };

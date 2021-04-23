@@ -1,5 +1,5 @@
-export default (database, DataTypes) => {
-  const rest = database.define(
+export default (sequelize, DataTypes) => {
+  const restaurantList = sequelize.define(
     'restaurant',
     {
       restaurant_id: {
@@ -32,5 +32,5 @@ export default (database, DataTypes) => {
     },
     { freezeTableName: true, timestamps: false }
   );
-  return rest;
+  return restaurantList;
 };
