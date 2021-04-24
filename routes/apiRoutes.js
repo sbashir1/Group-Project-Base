@@ -14,9 +14,9 @@ router.get('/', (req, res) => {
 /// /////////////////////////////////
 /// ////Restaurant Endpoints////////
 /// /////////////////////////////////
-router.get('/rest', async (req, res) => {
+router.get('/restaurant_info', async (req, res) => {
   try {
-    const rests = await db.rest.findAll();
+    const rests = await db.restaurantList.findAll();
     const reply = rests.length > 0 ? { data: rests } : { message: 'no results found' };
     res.json(reply);
   } catch (err) {
@@ -25,9 +25,9 @@ router.get('/rest', async (req, res) => {
   }
 });
 
-router.get('/rest/:restaurantID', async (req, res) => {
+router.get('/restaurant_info/:restaurantID', async (req, res) => {
   try {
-    const getrest = await db.rest.findAll({
+    const getrest = await db.restaurantList.findAll({
       where: {
         restaurant_id: req.params.restaurant_id
       }
@@ -39,11 +39,11 @@ router.get('/rest/:restaurantID', async (req, res) => {
   }
 });
 
-router.post('/rest', async (req, res) => {
-  const rests = await db.rest.findAll();
+router.post('/restaurant_info', async (req, res) => {
+  const rests = await db.restaurantList.findAll();
   const currentId = (await rests.length) + 1;
   try {
-    const newRest = await db.rest.create({
+    const newRest = await db.restaurantList.create({
       restaurant_id: currentId,
       food_id: currentId,
       restaurent_name: req.body.restaurent_name,
@@ -62,9 +62,9 @@ router.post('/rest', async (req, res) => {
 });
 
 
-router.put('/rest', async (req, res) => {
+router.put('/restaurant_info', async (req, res) => {
   try {
-    await db.rest.update(
+    await db.restaurantList.update(
       {
         restaurent_name: req.body.restaurent_name,
         restaurant_street: req.body.restaurant_street,
@@ -86,9 +86,9 @@ router.put('/rest', async (req, res) => {
     }
   });
 
-  router.delete('/rest/:foodID', async (req, res) => {
+  router.delete('/restaurant_info/:foodID', async (req, res) => {
     try {
-      await db.rest.destroy({
+      await db.restaurantList.destroy({
         where: {
           food_id: req.params.food_id
         }

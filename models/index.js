@@ -1,19 +1,19 @@
-import awards from './awards.js';
+import Awards from './Awards.js';
 import Chefs from './Chefs.js';
 import Food from './Food.js';
 import Monu from './Monu.js';
 import RestAward from './Restaurant_award.js';
 import RestChef from './RestChef.js';
 import RestMonu from './Rest_Monu.js';
-import rest from './rest.js';
+import restaurantList from './restaurant_info.js';
 
 export default {
-  awards,
+  Awards,
   Chefs,
   Food,
   Monu,
   RestAward,
   RestChef,
   RestMonu,
-  rest
+  restaurantList
 };
