@@ -96,4 +96,10 @@ label {
     color: white;
     text-align: center;
     background: rgb(87, 110, 136);
-  }
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+}
