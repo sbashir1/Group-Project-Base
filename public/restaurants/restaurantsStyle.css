@@ -44,7 +44,7 @@ h1 {
     text-align: center;
 }
 .nav {
-    height: 50px;
+    height: 80px;
     flex: 100%;
     display: flex;
 }
