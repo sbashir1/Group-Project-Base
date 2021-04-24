@@ -8,7 +8,7 @@ import RestMonu from './Rest_Monu.js';
 import restaurantList from './restaurant_info.js';
 
 export default {
-  awards,
+  Awards,
   Chefs,
   Food,
   Monu,
