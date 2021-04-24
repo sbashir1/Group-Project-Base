@@ -9,16 +9,37 @@
         <title>Monuments</title>
     </head> 
     <body>
-        <div class="banner">
+        <div class="banner">           <!--end div tag for h1 12-15 to maintain proper spacing between h1 and the nav bar-->
             <div class="h1">
-            <h1>Monuments</h1>      <!--Lines 11-15 create grey blueish banner/header on top-->
-            </div>
-            </div>
+            <h1>Monuments</h1>      <!--Lines 30-127 create grey blueish banner/header on top-->
+        </div>                       
+            <ul class="nav">        <!--navigation bar lines 16-35-->
+                <li><a href="#Home">Home</a></li>
+                <li><a href="http://localhost:3000/restaurants/restaurants.html">Restaurants</a></li>
+                <li><a href="http://localhost:3000/monuments/monument.html">Monuments</a></li>
+                <li><a href="http://localhost:3000/contactUs/contact.html">Contact Us</a></li>
+                <li><a href="#About">About</a></li>
+                <li>
+                    <h2 id="grad">
+                    <form class="userform">
+                        
+                        <label for="search_text">Search</label>
+                   
+                        <input type="text" name="search" id="search-bar" placeholder="search">
+                    </form>
+                        <div class="flex-outer">
+                        <div class="suggestions"></div>
+                        </div>
+                    </h2>
+                </li>     
+            </ul>
+        
+    </div>
                                     <!--Lines 17-106 create rows of boxes for each monument-->
         <div class="row">
             <div class="box">
                 <div class="img"> <img src="monuPhotos/washington.JPG" alt="Washington Monument"> </div>
-                  <div id="content">
+                  <div class="content">
                       <abbr title="Monument_name">Monument:</abbr>
                       <br>
                       <abbr title="Monument_address">Address:</abbr>
@@ -29,7 +50,7 @@
             <div class="box">
                 <div class="img"> <img src="monuPhotos/mlk.JPG" alt="Washington Monument"></div>
                 
-                <div class="content">
+                <div class="content1">
                     <abbr title="Monument_name">Monument:</abbr>
                     <br>
                     <abbr title="Monument_address">Address:</abbr>
@@ -41,7 +62,7 @@
         <div class="row">
             <div class="box">
                 <div class="img"> <img src="monuPhotos/marine.JPG" alt="Washington Monument"> </div>
-                  <div class="content">
+                  <div class="content2">
                       <abbr title="Monument_name">Monument:</abbr>
                       <br>
                       <abbr title="Monument_address">Address:</abbr>
@@ -51,7 +72,7 @@
             </div>
             <div class="box">
                 <div class="img"> <img src="monuPhotos/emancipation.JPG" alt="Washington Monument"> </div>
-                  <div class="content">
+                  <div class="content3">
                       <abbr title="Monument_name">Monument:</abbr>
                       <br>
                       <abbr title="Monument_address">Address:</abbr>
@@ -63,7 +84,7 @@
         <div class="row">
             <div class="box">
                 <div class="img"> <img src="monuPhotos/aaCivilWar.JPG" alt="Washington Monument"> </div>
-                  <div class="content">
+                  <div class="content4">
                       <abbr title="Monument_name">Monument:</abbr>
                       <br>
                       <abbr title="Monument_address">Address:</abbr>
@@ -73,7 +94,7 @@
             </div>
             <div class="box">
                 <div class="img"> <img src="monuPhotos/tjeff.JPG" alt="Washington Monument"> </div>
-                  <div class="content">
+                  <div class="content5">
                       <abbr title="Monument_name">Monument:</abbr>
                       <br>
                       <abbr title="Monument_address">Address:</abbr>
@@ -85,7 +106,7 @@
         <div class="row">
             <div class="box">
                 <div class="img"> <img src="monuPhotos/vietnam.JPG" alt="Washington Monument"> </div>
-                  <div class="content">
+                  <div class="content6">
                       <abbr title="Monument_name">Monument:</abbr>
                       <br>
                       <abbr title="Monument_address">Address:</abbr>
@@ -95,7 +116,7 @@
             </div>
             <div class="box">
                 <div class="img"> <img src="monuPhotos/navy.JPG" alt="Washington Monument"> </div>
-                  <div class="content">
+                  <div class="content7">
                       <abbr title="Monument_name">Monument:</abbr>
                       <br>
                       <abbr title="Monument_address">Address:</abbr>
@@ -106,7 +127,7 @@
         </div>
         <!--footer time babes-->
       <div class="footer">
-        <p>Test Girl</p>
+        <p>INST377 - Group 17</p>
       </div>
     </body>
     <!--<script src="scripts.js"></script>-->
