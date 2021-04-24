@@ -27,18 +27,6 @@ body {
     font-family: 'Poppins', serif;
 }
 
-
-
-/*header but i called it banner, it helps my thought process*/
-.banner{
-    padding: 5px;
-    text-align: center;
-    color: white;
-    font-size: 30px;
-    background: rgb(87, 110, 136);
-     
-}                       
-
 .row {
     display: -webkit-flex;
     display: -moz-flex;
@@ -52,8 +40,8 @@ body {
 }
 .box {
     border: 1px solid #DDD;
-    width: 425px;
-    height: 500px;
+    width: 725px;
+    height: 550px;
     padding-left: 25px;
     padding-right: 250px;
     padding-top: 100px;
@@ -63,78 +51,47 @@ body {
     margin-right: 60px;
 }
 
+.content1{
+    text-align: center;
+    font-size: 1rem;
+    height: 2rem;
+    line-height: 1.2;
+    position: absolute;
+    top: 200px;
+    left: 380px;
+    width: 675px;
+    height: 605px;
+}
+
+.content{
+    font-size: 1rem;
+    height: 2rem;
+    line-height: 1.2;
+    position: absolute;
+    text-align: center;
+    top: 300px;
+    left: 380px;
+    width: 675px;
+    height: 605px;
+}
+
+
+/*header but i called it banner, it helps my thought process*/
+.banner{
+    padding: 5px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    background: rgb(87, 110, 136);
+     
+}                       
+
 /*the monument/memorial pics*/
 .img{                               
     margin-left: 5px;
     margin-top: -75px;
     width: 250%;
     height: 250%;
-}
-
-/*the text in the box*/
-.content{                           /*i lost my text? idk where it went -- ill come back tomorrow
-                                        UPDATE: created content boxes for each text box -- must be an easier way*/
-    position: absolute;
-    top: 500px;
-    left: 420px;
-    width: 775px;
-    height: 605px;
-}
-
-.content1{
-    position: absolute;
-    top: 500px;
-    left: 950px;
-    width: 775px;
-    height: 605px;
-}
-
-.content2{
-    position: absolute;
-    top: 1060px;
-    left: 420px;
-    width: 775px;
-    height: 605px;
-}
-
-.content3{ /*skipped*/
-    position: absolute;
-    top: 1060px;
-    left: 950px;
-    width: 775px;
-    height: 605px;
-}
-
-.content4{
-    position: absolute;
-    top: 1620px;
-    left: 420px;
-    width: 775px;
-    height: 605px;
-}
-
-.content5{
-    position: absolute;
-    top: 1620px;
-    left: 950px;
-    width: 775px;
-    height: 605px;
-}
-
-.content6{
-    position: absolute;
-    top: 2200px;
-    left: 420px;
-    width: 775px;
-    height: 605px;
-}
-
-.content7{
-    position: absolute;
-    top: 2200px;
-    left: 950px;
-    width: 775px;
-    height: 605px;
 }
 
 /*footer at the bottom -- there is test text currently*/
@@ -149,8 +106,7 @@ body {
     background: rgb(87, 110, 136);
   }
 
-
- /*nav bar */ 
+  /*nav bar */ 
   .nav {
     margin-top: 10px;
     height: 50px;
