@@ -4,7 +4,7 @@ async function windowActions() {
   const search = document.querySelector('#category');
   const targetList = document.querySelector('.target-list');
 
-  const restaurantRequest = await fetch('/api/rest');
+  const restaurantRequest = await fetch('/api/restaurant_info');
   const monumentsRequest = await fetch('api/monuments');
   const foodRequest = await fetch('api/Food');
   const restaurantData = await restaurantRequest.json();
@@ -68,10 +68,6 @@ async function windowActions() {
         if (search.value.length === 0) { monumentshtml.length = 0; } else monumentshtml.length = 75;
         targetList.innerHTML = restauranthtml.join('').concat(monumentshtml.join(''));
       });
-      console.log(restaurantDisplay);
-      console.table(restaurantDisplay);
-      console.log(monumentsDisplay);
-      console.table(monumentsDisplay);
     });
 
     search.addEventListener('input', (event) => {
