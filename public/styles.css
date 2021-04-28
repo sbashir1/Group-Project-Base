@@ -95,7 +95,10 @@ h2 {
     display: block;
 }
 
-.target-list {
+.restaurant-target-list {
     text-align: center;
 }
 
+.monuments-target-list {
+    text-align: center;
+}
