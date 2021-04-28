@@ -12,20 +12,34 @@ body {
     top: 0;
     left: 0;
     margin: 0 auto;
-    background: rgb(144, 181, 248);
+    /*background-image: url(contactPics/IMG_9308.jpg);  --- idk about adding an image as a background?? cute or no?*/
     color: #fff;
 
     /*scroll time baby*/
     overflow-y: scroll;
+
   }
 .h1{
     width: 100%;
     height: 100px;
-    position:relative; top:20px;
+    position:relative; top:40px;
     display: inline;
     justify-content: center;
     font-family: 'Poppins', serif;
 }
+
+/*header but i called it banner, it helps my thought process*/
+.banner{
+    min-height: 15%;
+    min-width: 1024px;
+
+    padding: 5px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    background: #565264;
+     
+}    
 
 .row {
     display: -webkit-flex;
@@ -39,9 +53,9 @@ body {
     border: 0px;
 }
 .box {
-    border: 1px solid #DDD;
+    border-radius: 0px;
     width: 725px;
-    height: 550px;
+    height: 500px;
     padding-left: 25px;
     padding-right: 250px;
     padding-top: 100px;
@@ -50,6 +64,8 @@ body {
     margin-left: 50px;
     margin-right: 60px;
 }
+
+
 
 .content1{
     text-align: center;
@@ -75,66 +91,52 @@ body {
     height: 605px;
 }
 
-
-/*header but i called it banner, it helps my thought process*/
-.banner{
-    padding: 5px;
-    text-align: center;
-    color: white;
-    font-size: 30px;
-    background: rgb(87, 110, 136);
-     
-}                       
-
-/*the monument/memorial pics*/
-.img{                               
-    margin-left: 5px;
-    margin-top: -75px;
-    width: 250%;
-    height: 250%;
-}
-
-/*footer at the bottom -- there is test text currently*/
+/*footer at the bottom */
 .footer {
-    padding: 15px;
+    padding: 7px;
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     color: white;
     text-align: center;
-    background: rgb(87, 110, 136);
+    background:#565264;
   }
 
-  /*nav bar */ 
-  .nav {
-    margin-top: 10px;
+
+ /*nav bar */ 
+.nav {
+    margin-top: 50px;
     height: 50px;
     flex: 100%;
     display: flex;
+    background-color: #565264;
 }
   
 .nav ul {
-    padding: 0;
+    padding: 5;
     list-style-type: none;
     flex: 2;
     display: flex;
 }
 
 .nav li {
-    display: inline;
+    display: inline-block;
     text-align: center;
     flex: 1;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .nav a, .nav span {
     display: inline-block;
+    margin-top: 30px;
     font-size: 1rem;
     height: 2rem;
-    line-height: 1.2;
+    line-height: 1rem;
     text-transform: uppercase;
-    text-decoration: none;
-    color: black;
+    text-decoration: center;
+    color:rgb(255, 255, 255);
 }
 
 /* actual search bar */
@@ -142,14 +144,17 @@ body {
     display: inline-block;
     width: 180px;
     height: 30px;
+    margin-top: 20px;
 }
 
 /*this is control the 'search' text bar above the ACTUAL search bar*/
 label {
+    margin-top: 60px;
     font-size: 1rem;
-    color: black;
+    color: white;
 }
 
 .container {
     margin-top: 50px;
 }
+
