@@ -1,79 +1,104 @@
-body {
-    /* Set rules to fill background */
-    min-height: 100%;
-    min-width: 1024px;
-        
-    /* Set up proportionate scaling */
-    width: 100%;
-    height: auto;
-        
-    /* Set up positioning */
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin: 0 auto;
-    background: rgb(144, 181, 248);
-    color: #fff;
-    overflow-y: scroll;
-}
+h1 {
+    padding: 30px; 
+    background-color: #565264;
+    font-size: 3rem;
+    color:rgb(255, 255, 255);
+    align-items: center;
+    text-align: center;
+} 
 
-.banner {
+
+.banner { 
     /* Set rules to fill background */
     min-height: 15%;
-    min-width: 1024px;
+    min-width: 1024px; 
         
     /* Set up proportionate scaling */
     width: 100%;
-    height: auto;
+    height: auto; 
         
     /* Set up positioning */
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     margin: 0 auto;
-    background: rgb(87, 110, 136);
+    background-color: #565264;
     
-}
-
-.h1 {
-    padding: 30px; 
-}
-h1 {
-    color:#fff;
-    font-size: 5rem;
-    text-align: center;
 }
 
 .nav {
     height: 50px;
     flex: 100%;
     display: flex;
+    background-color: #565264;
 }
 .nav ul {
-    padding: 0;
+    padding: 5;
     list-style-type: none;
     flex: 2;
     display: flex;
 }
 
 .nav li {
-    display: inline;
+    display: inline-block;
     text-align: center;
     flex: 1;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .nav a, .nav span {
     display: inline-block;
-    font-size: 2rem;
+    font-size: 1.15rem;
     height: 3rem;
     line-height: 1.7;
     text-transform: uppercase;
+    align-items: center;
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
+
+.userform {
+    background-color: #565264;  
+}
 .flex-outer {
-    display: inline-block;
-    width: 180px;
-    height: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    width: 90%;
+    padding: 30px 30px;
+    border-radius: 15px;
+    margin-left: 60px;
+  }
+
+  .flex-outer input{
+      position: absolute;
+      width: 95%;   
+      padding: 8px;
+
+  }
+
+h2 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 2rem;
+    padding-bottom: 1%;
+}
+.main-content {
+    padding: 5% 10% 5% 10%;
+}
+
+
+.span {
+    display: block;
+}
+
+.restaurant-target-list {
+    text-align: center;
+}
+
+.monuments-target-list {
+    text-align: center;
 }

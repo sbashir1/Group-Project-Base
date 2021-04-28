@@ -5,46 +5,56 @@ body {
         
     /* Set up proportionate scaling */
     width: 100%;
-    height: auto;
+    height: 1200px;
         
     /* Set up positioning */
     position: fixed;
     top: 0;
     left: 0;
     margin: 0 auto;
-    background: rgb(144, 181, 248);
-    color: #fff;
+    background-color: rgb(255, 255, 255);
+    color:rgb(255, 255, 255);
+
+    /*scroll time baby*/
+    position: relative;
     overflow-y: scroll;
-}
 
-.banner {
-    /* Set rules to fill background */
-    min-height: 15%;
-    min-width: 1024px;
-        
-    /* Set up proportionate scaling */
+    /*allows for smooth scrolling so pls keep*/
+    height: 800px;
+  }
+.h1{
     width: 100%;
-    height: auto;
-        
-    /* Set up positioning */
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin: 0 auto;
-    background: rgb(87, 110, 136);
-    
+    height: 100px;
+    position:relative; top:40px;
+    display: inline;
+    justify-content: center;
+    font-family: 'Poppins', serif;
 }
 
-.h1 {
+ /*.h1 {
     padding: 30px; 
 }
 h1 {
     color:#fff;
     font-size: 5rem;
     text-align: center;
-}
+}*/
+
+/*header but i called it banner, it helps my thought process*/
+.banner{
+    min-height: 22.5%;
+    min-width: 1024px; 
+
+    padding: 5px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    background:  #565264;
+     
+}                       
+
 .nav {
-    height: 50px;
+    height: 80px;
     flex: 100%;
     display: flex;
 }
@@ -96,4 +106,79 @@ label {
     color: white;
     text-align: center;
     background: rgb(87, 110, 136);
+}
+
+.box {
+    border-radius: 0px;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+}
+
+
+/*footer at the bottom */
+.footer {
+    padding: 7px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    background:#565264;
   }
+
+
+ /*nav bar */ 
+.nav {
+    margin-top: 50px;
+    height: 50px;
+    flex: 100%;
+    display: flex;
+    background-color: #565264;
+}
+  
+.nav ul {
+    padding: 5;
+    list-style-type: none;
+    flex: 2;
+    display: flex;
+}
+
+.nav li {
+    display: inline-block;
+    text-align: center;
+    flex: 1;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav a, .nav span {
+    display: inline-block;
+    margin-top: 30px;
+    font-size: 1rem;
+    height: 2rem;
+    line-height: 1rem;
+    text-transform: uppercase;
+    text-decoration: center;
+    color:rgb(255, 255, 255);
+}
+
+/* actual search bar */
+#search-bar {
+    display: inline-block;
+    width: 180px;
+    height: 30px;
+    margin-top: 20px;
+}
+
+/*this is control the 'search' text bar above the ACTUAL search bar*/
+label {
+    margin-top: 60px;
+    font-size: 1rem;
+    color: white;
+}
+
+.container {
+    margin-top: 50px;
+}

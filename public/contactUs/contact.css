@@ -12,15 +12,12 @@ body {
     top: 0;
     left: 0;
     margin: 0 auto;
-    background-color: rgb(255, 255, 255);
-    color:rgb(255, 255, 255);
+    /*background-image: url(contactPics/IMG_9308.jpg);  --- idk about adding an image as a background?? cute or no?*/
+    color: #fff;
 
     /*scroll time baby*/
-    position: relative;
     overflow-y: scroll;
 
-    /*allows for smooth scrolling so pls keep*/
-    height: 800px;
   }
 .h1{
     width: 100%;
@@ -31,20 +28,18 @@ body {
     font-family: 'Poppins', serif;
 }
 
-
-
 /*header but i called it banner, it helps my thought process*/
 .banner{
-    min-height: 22.5%;
-    min-width: 1024px; 
+    min-height: 15%;
+    min-width: 1024px;
 
     padding: 5px;
     text-align: center;
     color: white;
     font-size: 30px;
-    background:  #565264;
+    background: #565264;
      
-}                       
+}    
 
 .row {
     display: -webkit-flex;
@@ -59,7 +54,7 @@ body {
 }
 .box {
     border-radius: 0px;
-    width: 400px;
+    width: 725px;
     height: 500px;
     padding-left: 25px;
     padding-right: 250px;
@@ -70,22 +65,30 @@ body {
     margin-right: 60px;
 }
 
-/*the monument/memorial pics*/
-.img{                               
-    margin-left: -26px;
-    margin-top: -100px;
-    width: 399px;
-    height: 200px;
+
+
+.content1{
+    text-align: center;
+    font-size: 1rem;
+    height: 2rem;
+    line-height: 1.2;
+    position: absolute;
+    top: 200px;
+    left: 380px;
+    width: 675px;
+    height: 605px;
 }
 
-/*the text in the box*/
-.content{                           /*update: got it:$ */
-    margin-left: 140px;
-    margin-top: 115px;
-    width: 399px;
-    height: 200px;
-
-   
+.content{
+    font-size: 1rem;
+    height: 2rem;
+    line-height: 1.2;
+    position: absolute;
+    text-align: center;
+    top: 300px;
+    left: 380px;
+    width: 675px;
+    height: 605px;
 }
 
 /*footer at the bottom */
@@ -154,3 +157,4 @@ label {
 .container {
     margin-top: 50px;
 }
+
