@@ -12,9 +12,15 @@ body {
     top: 0;
     left: 0;
     margin: 0 auto;
-    /*background-image: url(contactPics/IMG_9308.jpg);  --- idk about adding an image as a background?? cute or no?*/
     color: #fff;
     height: 300px;
+
+    /*scroll time baby*/
+    position: relative;
+    overflow-y: scroll;
+
+    /*allows for smooth scrolling so pls keep*/
+    height: 800px;
 
   }
   .h1{
@@ -26,9 +32,21 @@ body {
     font-family: 'Poppins', serif;
 }
 
+.h2{
+    font-weight: 300;
+    color: black;
+    letter-spacing: .09em;
+    margin-top: 50px;
+    width: 100%;
+    height: 100px;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Poppins', serif;
+}
+
 /*header but i called it banner, it helps my thought process*/
 .banner{
-    min-height: 15%;
+    min-height: 22.5%;
     min-width: 1024px;
 
     padding: 5px;
@@ -52,7 +70,7 @@ body {
 .box {
   border-radius: 0px;
   width: 800px;
-  height: 550px;
+  height: 620px;
   padding-left: 25px;
   padding-right: 250px;
   padding-top: 100px;
@@ -60,25 +78,20 @@ body {
   margin-top: 50px;
   margin-left: 50px;
   margin-right: 60px;
+  background-color: rgb(233, 233, 233);
 }
 /*the form in the box*/
 .content{                           
-  
-  width: 700px;
-  height: 700px;
+  margin-top: -100px;
+  width: 750px;
+  height: 550px;
 }
 
-
-.entry{               /* moves JUST the entry boxes*/
-  margin-top: 0px;
-  margin-left: 100px;
-  width: 100%;
-}
 
 
 /* css from lab 8? */
 .container {
-    width: 100%;
+    width: 80%;
     max-width: 1200px;
     margin: 0 auto;
   }
@@ -91,46 +104,50 @@ body {
 .flex-inner {
     list-style-type: none;
     padding: 0px;
+    position: relative;
+    bottom: 90px;
   }  
 
 .flex-outer {                           /*moves things from left or right*/
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
   }
-.flex-outer li, .flex-inner{        /* moves the entirety */
-    margin-bottom: 100px;
+.flex-outer li, 
+.flex-inner{        /* moves the entirety */
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    
 }
 
 .flex-inner {               /*idk what this does?  ---UPDATE: MORE SPACING*/
-    padding: 0 0px;
+    padding: 0 8px;
     justify-content: space-between;  
-    margin-left: 100px;
   }
 
 .flex-outer > li:not(:last-child) {   /*changes the spacing between rows*/
-    margin-bottom: 10px;
+    margin-bottom: -10px;
   }
 
 .flex-outer li label,                 /*labels like 'name' 'phone' etc */
 .flex-outer li p {
-    padding: 5px;
-    margin-right: 100px;
+    padding: 2px;
     font-weight: 300;
     color: black;
     letter-spacing: .09em;
-    text-transform: uppercase;
+    font-family: 'Poppins', serif;
+    position: relative;
+    bottom: 20px;
   }
 
-.flex-outer>li>label, .flex-outer li p{       /* changes spacing between the labels and entry boxes*/
-    flex: 1 0px;
+.flex-outer>li>label, 
+.flex-outer li p{       /* changes spacing between the labels and entry boxes*/
+    flex: 1 0 120px;
     max-width: 800px;
-    margin-top: 0px;
 }
 
-.flex-outer>li>label + *, .flex-inner{
+.flex-outer>li>label + *, 
+.flex-inner{
     flex: 1 0 220px;
 }
 
@@ -145,14 +162,15 @@ body {
   }
 
 .flex-outer li button{                      /*submit button*/
-    padding: 10px 8px;
+    padding: 4px 16px;
     border: none;
     background: rgb(223, 166, 245);
     color:white;
     text-transform: uppercase;
     letter-spacing: .09em;
     border-radius: 2px;
-    margin-left: 285px;
+    margin-top: 35px;
+    margin-left: 279px;
 }
 
 .flex-inner li {        /*idk what this does?*/
