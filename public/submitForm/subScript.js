@@ -2,7 +2,7 @@ function onLoad(){
     console.log('script loaded');
 }
 
-app.route('/api')
+app.route('/submitForm/subit.html')
     .get(async(req,res)=>{
         console.log('GET request detected');
         const data = await fetch('/http://localhost:3000/submitForm/submit.html');
