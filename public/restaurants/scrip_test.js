@@ -1,31 +1,53 @@
+async function getRestaurants() {
+    const restaurantRequest = await fetch('/api/restaurant_info');
+    const Restdata = await restaurantRequest.json();
+    return Restdata
+}
+
+// function getRandomIntInclusive(min, max) {
+//     min = Math.ceil(min);
+//     max = Math.floor(max);
+//     return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+// }
+
 async function windowActions() {
     console.log('window loaded');
-    const restaurantRequest = await fetch('/api/restaurant_info');
-    const data = await restaurantRequest.json();
+    const results = await getRestaurants();
+    const restInfo = results.data.slice(0,10);
+    console.table(restInfo)
 
-    const getTen = data.slice(0,10);
+    // const restArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // const selectedRest = restArray.map((element) => {
+    //     const random = getRandomIntInclusive(0, restInfo.length -1);
+    //     return restInfo[random];
+    // });
+    // console.table(selectedRest)
 
-    const restaurant_list = document.querySelector('.content');
+    // const restaurant_list = document.querySelector('.content');
 
-    getTen.forEach((item) => {
+    restInfo.forEach((place) => {
         console.log('display')
-        const html = listArray.map(place => {
-            const restName = place.restaurant_name;
 
-            return `
+        // const restList = document.getElementById('restaurant_box');
+        const restList = document.querySelector('.restaurant_box')
+        const restli = document.createElement('ul')
+        const restName = place.restaurant_name;
+
+        const restaurant_list = `
             <div class="box1">
                 <li>
-                <div class="Rname">${restName}</div>
-                ${place.restaurant_street}
-                ${place.restaurant_town}
-                ${place.restaurant_phone}<br>
-                ${place.restaurant_email}<br>
+                    <div class="Rname">${restName}</div>
+                    ${place.restaurant_street}
+                    ${place.restaurant_town}
+                    ${place.restaurant_phone}<br>
+                    ${place.restaurant_email}<br>
                 </li>
             </div>
             `;
-        }).join('');
-        restaurant_list.innerHTML = html;
+        restli.innerHTML = restaurant_list;
+        restList.append(restli);
+        
     });
 }
 
-window.onload = windowsActions;
+window.onload = windowActions;
