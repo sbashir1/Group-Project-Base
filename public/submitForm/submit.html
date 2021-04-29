@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Poppins">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">        
+        <link rel="stylesheet" type= "text/css" href="submitStyle.css">
+        <title>Submit Form</title>
+    </head> 
+    <body>
+        <div class="banner">           <!--end div tag for h1 12-15 to maintain proper spacing between h1 and the nav bar-->
+            <div class="h1">
+            <h1>Submit Form</h1>      <!--Lines 30-127 create grey blueish banner/header on top-->
+            </div>                
+            <ul class="nav">        <!--navigation bar lines 16-35-->
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/restaurants/restaurants.html">Restaurants</a></li>
+                <li><a href="/monuments/monument.html">Monuments</a></li>
+                <li><a href="/contactUs/contact.html">Contact Us</a></li>
+                <li><a href="/about.html">About</a></li>
+               <!--   <li><a href="submitForm/submit.html">Submission Form</a></li>    i think the submit form should just be accessible through contact us page but let me know what ya think-->
+                <li>
+                    <h2 id="grad">
+                    <form class="userform">
+                        
+                        <label for="search_text">Search</label>
+                   
+                        <input type="text" name="search" id="search-bar" placeholder="search">
+                    </form>
+                        <div class="flex-outer">
+                        <div class="suggestions"></div>
+                        </div>
+                    </h2>
+                </li>     
+            </ul>
+        
+    </div>
+    <div class="row">
+        <div class="box">
+            <div class="content">
+                <div class="h2">Submit A Recommendation</div>
+                <form action="/api" method="post">
+                    <ul class="flex-outer">
+                        <li>
+                            <label for="name">Name</label>
+                            <input type="text" id="first-name" placeholder="Enter your first and last name here">
+                        </li>
+                        <li>
+                            <label for="email">Email</label>
+                            <input type="text" id="last-name" placeholder="Enter your email here">
+                        </li>
+                        <li>
+                            <label for="restaurant">Restaurant</label>
+                            <input type="email" id="email" placeholder="Enter restaurant here">
+                        </li>
+                        <li>
+                            <label for="monu/memor">Monument/Memorial</label>
+                            <input type="tel" id="phone" placeholder="Enter monument or memorial here">
+                        </li>
+                        <li>
+                            <label for="message">Message</label>
+                            <textarea rows="6" id="message" placeholder="Enter your optional message here"></textarea>
+                        </li>
+                        
+                        <li>
+                            <button type="submit">Submit Form</button>
+                        </li>
+                    </ul>
+                </form>
+        </div>
+    </div>
+</div>
+
+<!--footer time babes-->
+<div class="footer">
+    <p>INST377 - Group 17</p>
+</div>
+</body>
+<script src="subScript.js"></script>
+</html>
