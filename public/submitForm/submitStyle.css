@@ -1,0 +1,227 @@
+body {
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+        
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: 1200px;
+        
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    /*background-image: url(contactPics/IMG_9308.jpg);  --- idk about adding an image as a background?? cute or no?*/
+    color: #fff;
+    height: 300px;
+
+  }
+  .h1{
+    width: 100%;
+    height: 100px;
+    position:relative; top:40px;
+    display: inline;
+    justify-content: center;
+    font-family: 'Poppins', serif;
+}
+
+/*header but i called it banner, it helps my thought process*/
+.banner{
+    min-height: 15%;
+    min-width: 1024px;
+
+    padding: 5px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    background: #565264;
+     
+}    
+.row {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -moz-justify-content:space-between;
+  -ms-justify-content: space-between;
+  justify-content:center;
+  border: 0px;
+}
+.box {
+  border-radius: 0px;
+  width: 800px;
+  height: 550px;
+  padding-left: 25px;
+  padding-right: 250px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 60px;
+}
+/*the form in the box*/
+.content{                           
+  
+  width: 700px;
+  height: 700px;
+}
+
+
+.entry{               /* moves JUST the entry boxes*/
+  margin-top: 0px;
+  margin-left: 100px;
+  width: 100%;
+}
+
+
+/* css from lab 8? */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+.container * {
+    box-sizing: border-box;
+  }
+
+.flex-outer,        /*idk what this does? --- UPDATE: keep it*/
+.flex-inner {
+    list-style-type: none;
+    padding: 0px;
+  }  
+
+.flex-outer {                           /*moves things from left or right*/
+    max-width: 900px;
+    margin: 0 auto;
+  }
+.flex-outer li, .flex-inner{        /* moves the entirety */
+    margin-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.flex-inner {               /*idk what this does?  ---UPDATE: MORE SPACING*/
+    padding: 0 0px;
+    justify-content: space-between;  
+    margin-left: 100px;
+  }
+
+.flex-outer > li:not(:last-child) {   /*changes the spacing between rows*/
+    margin-bottom: 10px;
+  }
+
+.flex-outer li label,                 /*labels like 'name' 'phone' etc */
+.flex-outer li p {
+    padding: 5px;
+    margin-right: 100px;
+    font-weight: 300;
+    color: black;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+  }
+
+.flex-outer>li>label, .flex-outer li p{       /* changes spacing between the labels and entry boxes*/
+    flex: 1 0px;
+    max-width: 800px;
+    margin-top: 0px;
+}
+
+.flex-outer>li>label + *, .flex-inner{
+    flex: 1 0 220px;
+}
+
+.flex-outer li p {    /*idk what this does?*/
+    margin: 0;
+  }
+
+.flex-outer li input:not([type='checkbox']),  /*no check boxes used yet? keeping in case*/
+.flex-outer li textarea {
+    padding: 15px;
+    border: none;
+  }
+
+.flex-outer li button{                      /*submit button*/
+    padding: 10px 8px;
+    border: none;
+    background: rgb(223, 166, 245);
+    color:white;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    border-radius: 2px;
+    margin-left: 285px;
+}
+
+.flex-inner li {        /*idk what this does?*/
+    width: 100px;
+}
+
+.flex-inner{
+    justify-content: space-between
+}
+
+/*footer at the bottom */
+.footer {
+  padding: 7px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  background:#565264;
+}
+
+/*nav bar */ 
+.nav {
+  margin-top: 50px;
+  height: 50px;
+  flex: 100%;
+  display: flex;
+  background-color: #565264;
+}
+
+.nav ul {
+  padding: 5;
+  list-style-type: none;
+  flex: 2;
+  display: flex;
+}
+
+.nav li {
+  display: inline-block;
+  text-align: center;
+  flex: 1;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav a, .nav span {
+  display: inline-block;
+  margin-top: 30px;
+  font-size: 1rem;
+  height: 2rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+  text-decoration: center;
+  color:rgb(255, 255, 255);
+}
+
+/* actual search bar */
+#search-bar {
+  display: inline-block;
+  width: 180px;
+  height: 30px;
+  margin-top: 20px;
+}
+
+/*this is control the 'search' text bar above the ACTUAL search bar*/
+label {
+  margin-top: 60px;
+  font-size: 1rem;
+  color: white;
+}
+
