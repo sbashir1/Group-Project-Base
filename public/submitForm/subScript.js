@@ -1,8 +1,7 @@
-function onLoad(){
-    console.log('script loaded');
-}
+import express from 'express';
+const app = express();
 
-app.route('/submitForm/subit.html')
+app.route('/submitForm/submit.html')
     .get(async(req,res)=>{
         console.log('GET request detected');
         const data = await fetch('/http://localhost:3000/submitForm/submit.html');
@@ -19,6 +18,10 @@ app.route('/submitForm/subit.html')
         res.send({data:dataToSendToFrontEnd})
     })
 
+function onLoad(){
+        console.log('script loaded');
+}
+    
     
     
 
