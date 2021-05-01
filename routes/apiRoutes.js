@@ -101,6 +101,26 @@ router.put('/restaurant_info', async (req, res) => {
   });
 
 /// ///////////////////////////////////////
+/// FormTest Endpoints//////////
+/// ///////////////////////////////////////  
+
+router.post("/submit", async (req, res) => {
+  const currentId = (await monu.length) + 1;
+  try {
+    const newForm = await db.submitForm.create({
+      Monument_name: currentId,
+      Monument_address: req.body.Monument_address,
+      Monument_zip: req.body.Monument_zip,
+    });
+    res.json(newForm);
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
+
+/// ///////////////////////////////////////
 /// Restaurant Monument Endpoints//////////
 /// ///////////////////////////////////////
 router.get('/restaurantMonuments', async (req, res) => {

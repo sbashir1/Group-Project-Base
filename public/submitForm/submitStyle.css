@@ -13,14 +13,14 @@ body {
     left: 0;
     margin: 0 auto;
     color: #fff;
-    height: 300px;
+    
 
     /*scroll time baby*/
     position: relative;
     overflow-y: scroll;
 
     /*allows for smooth scrolling so pls keep*/
-    height: 800px;
+    height: 1000px;
 
   }
   .h1{
