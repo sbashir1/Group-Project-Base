@@ -154,3 +154,17 @@ label {
 .container {
     margin-top: 50px;
 }
+
+.span {
+    display: block;
+}
+
+.restaurant-target-list {
+    text-align: center;
+    color: black;
+}
+
+.monuments-target-list {
+    text-align: center;
+    color: black;
+}
