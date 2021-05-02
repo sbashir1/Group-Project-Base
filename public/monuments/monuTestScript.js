@@ -15,15 +15,18 @@ async function windowActions(){
 
         const monuName = place.Monument_name;
         return `
-        <div class="box">  
-            <ul>
-                <li>
-                    <div class="Rname">${monuName}</div>
-                    ${place.Monument_address}<br>
-                    ${place.Monument_zip}<br>
-                </li>
-            </ul>
-        </div>
+        
+            <div class="box"> 
+                <ul>
+                    <li>
+                        <div class="content">${monuName}<br>
+                        ${place.Monument_address}<br>
+                        ${place.Monument_zip}<br>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        
         `;
     }).join('');
     monuList.innerHTML = html;

@@ -1,6 +1,6 @@
 export default (sequelize, DataTypes) => {
   const restMonus = sequelize.define(
-    'restaurantMonuments',
+    'restaurant_monuments',
     {
       restaurant_id: {
         type: DataTypes.INTEGER,

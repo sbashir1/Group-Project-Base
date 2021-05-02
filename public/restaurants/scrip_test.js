@@ -3,7 +3,11 @@ async function getRestaurants() {
     const Restdata = await restaurantRequest.json();
     return Restdata
 }
-
+async function getAwards() {
+    const awardsRequest = await fetch('/api/Awards');
+    const Awardsdata = await awardsRequest.json();
+    return Awardsdata
+}
 async function windowActions() {
     console.log('window loaded');
     const results = await getRestaurants();
@@ -31,11 +35,77 @@ async function windowActions() {
         `;
     }).join('');
     restList.innerHTML = html;
+
+
+    // For search bar
+    console.log('search')
+    const request = await fetch('/api/restaurant_info');
+    const data = await request.json();
+
+    function findMatches(wordToMatch, data){
+        console.log('find matches')
+        return data.filter(place => {
+            const regex = new RegExp(wordToMatch, 'gi');
+            return place.restaurant_street.match(regex) || place.restaurant_name.match(regex);
+            
+        });
+    };
+
+    function displayMatches(event){
+        console.log('display')
+        const matchArray = findMatches(event.target.value, data);
+        const html = matchArray.map(place => {
+            const restName = place.restaurant_name;
+
+            return `
+                <div class="box2">
+                    <ul>
+                        <li>
+                            <div class="Rname">${restName}</div>
+                            ${place.restaurant_street}
+                            ${place.restaurant_town}
+                            ${place.restaurant_zip}<br>
+                            ${place.restaurant_phone}<br>
+                            ${place.restaurant_email}<br>
+                        </li>
+                    </ul>
+                </div>
+            `;
+        }).join('');
+        suggestions.innerHTML = html;
+    }
+    const searchInput = document.querySelector('.userform');
+    const suggestions = document.querySelector('.suggestions');
+    
+    searchInput.addEventListener('change', displayMatches);
+    searchInput.addEventListener('keyup', (evt) => {
+        evt.preventDefault()
+        displayMatches(evt)
+    });
+}
+async function awardsActions() {
+    const awardResults = await getAwards();
+    console.table(awardResults)
+
+    const awardList = document.querySelector('.awards-section');
+    const html = awardResults.map(awar => {
+        console.log('display')
+        return `
+        <div class="box2">  
+            <ul>
+                <li>
+                    ${awar.Awards_ID}<br>
+                    ${awar.Award_name}<br>
+                </li>
+            </ul>
+        </div>
+        `;
+    }).join('');
+    awardList.innerHTML = html;
 }
 
 window.onload = windowActions;
-
-
+window.onload = awardsActions;
 
 // PRACTICE STUFF BELOW HERE.
 

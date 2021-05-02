@@ -179,9 +179,19 @@ label {
     border-radius: 0px;
     display: flex;
     align-items: center;
-    padding: 30px;
+    padding: 10px;
     background-color:rgb(215, 215, 215);
     margin-bottom: 2em;
+    width: 300px;
+}
+.box2 {
+    border-radius: 0px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color:rgb(215, 215, 215);
+    margin-bottom: 2em;
+    width: 300px;
 }
 
 .Rname {
@@ -190,5 +200,12 @@ label {
 }
 
 .restaurant_box {
-    margin-left: 50px;
+    margin-left: 100px;
+    width: 10px;
+    padding: 0px;
+}
+.awards-section {
+    margin-left: 700px;
+    width: 50px;
+    height: 50px;
 }
