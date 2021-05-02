@@ -3,7 +3,11 @@ async function getRestaurants() {
     const Restdata = await restaurantRequest.json();
     return Restdata
 }
-
+async function getAwards() {
+    const awardsRequest = await fetch('/api/Awards');
+    const Awardsdata = await awardsRequest.json();
+    return Awardsdata
+}
 async function windowActions() {
     console.log('window loaded');
     const results = await getRestaurants();
@@ -79,10 +83,29 @@ async function windowActions() {
         displayMatches(evt)
     });
 }
+async function awardsActions() {
+    const awardResults = await getAwards();
+    console.table(awardResults)
+
+    const awardList = document.querySelector('.awards-section');
+    const html = awardResults.map(awar => {
+        console.log('display')
+        return `
+        <div class="box2">  
+            <ul>
+                <li>
+                    ${awar.Awards_ID}<br>
+                    ${awar.Award_name}<br>
+                </li>
+            </ul>
+        </div>
+        `;
+    }).join('');
+    awardList.innerHTML = html;
+}
 
 window.onload = windowActions;
-
-
+window.onload = awardsActions;
 
 // PRACTICE STUFF BELOW HERE.
 
