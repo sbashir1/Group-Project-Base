@@ -87,7 +87,7 @@ body {
     text-align: center;
     top: 300px;
     left: 380px;
-    width: 675px;
+    width: 635px;
     height: 605px;
 }
 
@@ -158,3 +158,16 @@ label {
     margin-top: 50px;
 }
 
+.span {
+    display: block;
+}
+
+.restaurant-target-list {
+    text-align: center;
+    color: black;
+}
+
+.monuments-target-list {
+    text-align: center;
+    color: black;
+}
