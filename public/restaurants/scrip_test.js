@@ -31,6 +31,53 @@ async function windowActions() {
         `;
     }).join('');
     restList.innerHTML = html;
+
+
+    // For search bar
+    console.log('search')
+    const request = await fetch('/api/restaurant_info');
+    const data = await request.json();
+
+    function findMatches(wordToMatch, data){
+        console.log('find matches')
+        return data.filter(place => {
+            const regex = new RegExp(wordToMatch, 'gi');
+            return place.restaurant_street.match(regex) || place.restaurant_name.match(regex);
+            
+        });
+    };
+
+    function displayMatches(event){
+        console.log('display')
+        const matchArray = findMatches(event.target.value, data);
+        const html = matchArray.map(place => {
+            const restName = place.restaurant_name;
+
+            return `
+                <div class="box2">
+                    <ul>
+                        <li>
+                            <div class="Rname">${restName}</div>
+                            ${place.restaurant_street}
+                            ${place.restaurant_town}
+                            ${place.restaurant_zip}<br>
+                            ${place.restaurant_phone}<br>
+                            ${place.restaurant_email}<br>
+                        </li>
+                    </ul>
+                </div>
+            `;
+        }).join('');
+        suggestions.innerHTML = html;
+    }
+    const searchInput = document.querySelector('.userform');
+    const suggestions = document.querySelector('.suggestions');
+    
+    searchInput.addEventListener('change', displayMatches);
+    searchInput.addEventListener('keyup', (evt) => {
+        evt.preventDefault()
+        displayMatches(evt)
+    });
 }
 
 window.onload = windowActions;
