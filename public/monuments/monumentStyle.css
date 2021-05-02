@@ -158,3 +158,17 @@ label {
     font-size: 1.5rem;
     font-weight: 700;
 }
+
+.span {
+    display: block;
+}
+
+.restaurant-target-list {
+    text-align: center;
+    color: black;
+}
+
+.monuments-target-list {
+    text-align: center;
+    color: black;
+}
