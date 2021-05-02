@@ -5,8 +5,7 @@ async function restaurant() {
   const restTargetList = document.querySelector('.restaurant-target-list');
 
   const restaurantRequest = await fetch('/api/restaurant_info');
-  const monumentsRequest = await fetch('api/monuments');
-  const foodRequest = await fetch('api/Food');
+  const monumentsRequest = await fetch('/api/monuments');
   const restaurantData = await restaurantRequest.json();
   const monumentsData = await monumentsRequest.json();
 
@@ -28,7 +27,6 @@ async function restaurant() {
       restTargetList.removeChild(restTargetList.firstChild);
     }
     restaurantDisplay.forEach((item) => {
-      const appendItem = document.createElement('li');
       restauranthtml = restaurantDisplay.map((place) => (`
                <li>
                   <span class='Name'>${place.restaurant_name}</span>
@@ -56,8 +54,7 @@ async function monuments() {
   const monuTargetList = document.querySelector('.monuments-target-list');
 
   const restaurantRequest = await fetch('/api/restaurant_info');
-  const monumentsRequest = await fetch('api/monuments');
-  const foodRequest = await fetch('api/Food');
+  const monumentsRequest = await fetch('/api/monuments');
   const restaurantData = await restaurantRequest.json();
   const monumentsData = await monumentsRequest.json();
 
@@ -76,7 +73,6 @@ async function monuments() {
     }
     //   console.log(targetList);
     monumentsDisplay.forEach((item) => {
-    //    const appendItem = document.createElement('li');
       monumentshtml = monumentsDisplay.map((place) => (`
              <li>
                 <span class='Name'>${place.Monument_name}</span>
@@ -86,10 +82,7 @@ async function monuments() {
             `));
       // eslint-disable-next-line max-len
       if (search.value.length === 0) { monumentshtml.length = 0; } else monumentshtml.length = 75;
-      monuTargetList.innerHTML = monumentshtml.join('');// (restauranthtml.join('')).concat(monumentshtml.join(''));
-    //     let difference = monumentshtml.filter(x => !restauranthtml.includes(x));
-    //     console.log(difference)
-    //   });
+      monuTargetList.innerHTML = monumentshtml.join('');
     });
   });
 }

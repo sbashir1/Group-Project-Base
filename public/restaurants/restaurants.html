@@ -22,12 +22,12 @@
             <li><a href="/about.html">About</a></li>
             <li>
                 <h2 id="grad">
-                <form class="userform">
-                    
-                    <label for="search_text">Search</label>
-               
-                    <input type="text" name="search" id="search-bar" placeholder="Search Food Type or Street">
-                </form>
+                    <form class="userform">
+                        <div class="flex-outer">
+                            <label for="category">Search</label>
+                            <input type="text" id="category" name="category" placeholder="Search categories"></input> 
+                        </div>
+                    </form>
                     <div class="flex-outer">
                     <div class="suggestions"></div>
                     </div>
@@ -35,6 +35,8 @@
             </li>     
         </ul>
     </div>
+    <ul class="restaurant-target-list"></ul>
+    <ul class="monuments-target-list"></ul>
     <div class="container">
         <div class="box">
             <!-- <div class="rest-left">
