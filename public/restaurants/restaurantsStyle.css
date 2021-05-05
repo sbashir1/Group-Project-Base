@@ -177,9 +177,13 @@ label {
 }
 
 .box {
+    border-color: none;
+    box-shadow: none;
     justify-content: space-evenly;
 }
 .box1 {
+    border-color: none;
+    box-shadow: none;
     border-radius: 0px;
     padding: 10px;
     margin-bottom: 2em;
@@ -220,6 +224,7 @@ img {
 .photos {
     float: left;
     margin-top: 5px;
+    margin-left: 150px;
 }
 
 
