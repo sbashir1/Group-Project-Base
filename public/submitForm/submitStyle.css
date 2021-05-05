@@ -46,14 +46,14 @@ body {
 
 /*header but i called it banner, it helps my thought process*/
 .banner{
-    min-height: 22.5%;
+    min-height: 18%;
     min-width: 1024px;
-
     padding: 5px;
     text-align: center;
     color: white;
     font-size: 30px;
     background: #565264;
+    margin-bottom: -.2px;
      
 }    
 .row {

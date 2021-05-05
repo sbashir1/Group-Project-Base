@@ -40,7 +40,9 @@
         <div class="box">
             <div class="content">
                 <div class="h2">Submit A Recommendation</div>
-                <form action="/api" method="post">
+               <!-- <form action="/api" method="post"> -->
+                <form id="recordSubmit" class="form" >
+
                     <ul class="flex-outer">
                         <li>
                             <label for="name">Name</label>
@@ -48,15 +50,15 @@
                         </li>
                         <li>
                             <label for="email">Email</label>
-                            <input type="text" id="last-name" placeholder="Enter your email here">
+                            <input type="email" id="email" placeholder="Enter your email here">
                         </li>
                         <li>
                             <label for="restaurant">Restaurant</label>
-                            <input type="email" id="email" placeholder="Enter restaurant here">
+                            <input type="text" id="restaurant" placeholder="Enter restaurant here">
                         </li>
                         <li>
                             <label for="monu/memor">Monument/Memorial</label>
-                            <input type="tel" id="phone" placeholder="Enter monument or memorial here">
+                            <input type="text" id="monu" placeholder="Enter monument or memorial here">
                         </li>
                         <li>
                             <label for="message">Message</label>
@@ -77,5 +79,5 @@
     <p>INST377 - Group 17</p>
 </div>
 </body>
-<script type='form' src="subScript.js"></script>
+<script type='form' src="test.js"></script>
 </html>

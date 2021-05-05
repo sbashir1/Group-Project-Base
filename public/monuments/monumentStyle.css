@@ -46,25 +46,17 @@ body {
      
 }                       
 .box {
-    border:none;
-    box-shadow: none;
-    border-radius: 0px;
-    margin-left: 350px;
-    width: 200px;
-    margin-top: -.2px;
+    border-color: none;
+    box-shadow:none;
+    text-align: right;
     
 }
 .photoTime{
-    border:none;
-    box-shadow: none;
-    border-radius: 0px;
     width: 500px;
     height: 300px;
-    padding-left: 5px;
-    padding-right:50px;
-    margin-left: 300px;
-    margin-right: 60px;
-    margin-top: -2750px;
+    margin-left: 800px;
+    margin-top: -2870px;
+
 }
 /*the monument/memorial pics*/
 #img{         
@@ -157,4 +149,18 @@ label {
 .Rname {
     font-size: 1.5rem;
     font-weight: 700;
+}
+
+.span {
+    display: block;
+}
+
+.restaurant-target-list {
+    text-align: center;
+    color: black;
+}
+
+.monuments-target-list {
+    text-align: center;
+    color: black;
 }
