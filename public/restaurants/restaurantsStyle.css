@@ -141,8 +141,9 @@ label {
     display: inline-block;
     text-align: center;
     flex: 1;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
+    height: 200px;
 }
 
 .nav a, .nav span {
@@ -175,44 +176,30 @@ label {
     margin-top: 50px;
 }
 
+.box {
+    justify-content: space-evenly;
+}
 .box1 {
     border-radius: 0px;
-    display: flex;
-    align-items: center;
     padding: 10px;
-    background-color:rgb(215, 215, 215);
-    margin-bottom: 2em;
-    width: 300px;
-}
-.box2 {
-    border-radius: 0px;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color:rgb(215, 215, 215);
     margin-bottom: 2em;
     width: 300px;
 }
 
 .Rname {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
 }
 
 .restaurant_box {
-    margin-left: 100px;
+    margin-top: 2px;
+    margin-bottom: 10px;
+    margin-right: 600px;
     width: 10px;
-    padding: 0px;
-}
-.awards-section {
-    margin-left: 700px;
-    width: 50px;
-    height: 50px;
+    height: 250px;
+    float: right;
 }
 
-.span {
-    display: block;
-}
 
 .restaurant-target-list {
     text-align: center;
@@ -223,3 +210,17 @@ label {
     text-align: center;
     color: black;
 }
+
+img {
+    width: 250px;
+    height: 180px;
+    margin-left: 100px;
+    padding: 10px;
+}
+.photos {
+    float: left;
+    margin-top: 5px;
+}
+
+
+
