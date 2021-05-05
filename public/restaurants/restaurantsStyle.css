@@ -189,10 +189,21 @@ label {
     margin-bottom: 2em;
     width: 300px;
 }
-
+.box2 {
+    margin-top: 20px;
+    padding: 10px;
+    display: inline-block;
+    background-color: rgb(140, 252, 140);
+}
 .Rname {
     font-size: 1.3rem;
     font-weight: 700;
+}
+
+.Name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 10px;
 }
 
 .restaurant_box {

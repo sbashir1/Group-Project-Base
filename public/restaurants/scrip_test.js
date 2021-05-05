@@ -4,7 +4,7 @@ async function getRestaurants() {
   return Restdata;
 }
 
-async function windowActions() {
+async function get_restaurants() {
   console.log('window loaded');
   const results = await getRestaurants();
   const restInfo = results.data.slice(0, 10);
@@ -63,8 +63,8 @@ async function restaurant() {
     }
     restaurantDisplay.forEach((item) => {
       restauranthtml = restaurantDisplay.map((place) => (`
-                 <li>
-                    <span class='Name'>${place.restaurant_name}</span>
+                 <li class="box2">
+                    <span class='Name'>${place.restaurant_name}</span></br>
                     <span class='Street'>${place.restaurant_street}</span>
                     <span class='Location'>${place.restaurant_town}, ${place.restaurant_zip}</span>
                     <span class='Phone'>${place.restaurant_phone}</span>
@@ -109,7 +109,7 @@ async function monuments() {
     //   console.log(targetList);
     monumentsDisplay.forEach((item) => {
       monumentshtml = monumentsDisplay.map((place) => (`
-               <li>
+               <li class="box2">
                   <span class='Name'>${place.Monument_name}</span>
                   <span class='Address'>${place.Monument_address}</span>
                   <span class='Zip'>${place.Monument_zip}</span>
@@ -123,13 +123,17 @@ async function monuments() {
 }
 
 async function searchResults() {
+  await get_restaurants();
   await restaurant();
   await monuments();
 }
 
 window.onload = searchResults;
-window.onload = windowActions;
-//window.onload = awardsActions;
+
+
+
+
+// window.onload = windowActions;
 
 // /// For search bar
 // console.log('search');
