@@ -33,9 +33,8 @@ body {
 
 /*header but i called it banner, it helps my thought process*/
 .banner{
-    min-height: 15%;
+    min-height: 22.5%;
     min-width: 1024px;
-
     padding: 5px;
     text-align: center;
     color: white;

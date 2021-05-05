@@ -224,6 +224,14 @@ router.get('/monuments/:Monument_ID', async (req, res) => {
 });
 
 router.post("/monuments", async (req, res) => {
+  console.info('Post request to /monuments', req.body);
+
+  const existingMonu = await db.Monument_name.findAll({
+    where:{
+      Monument_name: req.body.Monument_name
+    }
+  });
+
   const monuments = await db.Monu.findAll();
   const currentId = (await monuments.length)+1;
   try {
@@ -234,6 +242,7 @@ router.post("/monuments", async (req, res) => {
       Monument_zip: req.body.Monument_zip,
     });
     res.json(newMonument);
+   res.json({message: "nope"});
   } catch (err) {
     console.error(err);
     res.error("Server error");
