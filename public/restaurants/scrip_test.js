@@ -3,11 +3,7 @@ async function getRestaurants() {
   const Restdata = await restaurantRequest.json();
   return Restdata;
 }
-async function getAwards() {
-  const awardsRequest = await fetch('/api/Awards');
-  const Awardsdata = await awardsRequest.json();
-  return Awardsdata;
-}
+
 async function windowActions() {
   console.log('window loaded');
   const results = await getRestaurants();
@@ -23,7 +19,7 @@ async function windowActions() {
         <div class="box1">  
             <ul>
                 <li>
-                    <div class="Rname">${restName}</div>
+                    <div class="Rname">${restName}</div><br>
                     ${place.restaurant_street}
                     ${place.restaurant_town}
                     ${place.restaurant_zip}<br>
