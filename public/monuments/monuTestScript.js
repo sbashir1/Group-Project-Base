@@ -127,4 +127,4 @@ async function restaurant() {
   }
   
 window.onload = searchResults;
-//window.onload = windowActions;
+window.onload = windowActions; 

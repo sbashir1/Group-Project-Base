@@ -5,7 +5,8 @@ export default (sequelize, DataTypes) => {
       restaurant_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        unique: true
       },
       award_id: {
         type: DataTypes.INTEGER,
@@ -23,5 +24,11 @@ export default (sequelize, DataTypes) => {
     },
     { freezeTableName: true, timestamps: false }
   );
+
+  // restaurant_award.associate = (models) => {
+  //   restaurant_award.belongsTo(models.restaurant_info, {
+  //     foreignKey: 'restaurant_id'
+  //   });
+  // };
   return restaurant_award;
 };
