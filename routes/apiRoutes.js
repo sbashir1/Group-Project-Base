@@ -40,13 +40,14 @@ router.get('/restaurant_info/:restaurantID', async (req, res) => {
 });
 
 router.post('/restaurant_info', async (req, res) => {
+  console.info('Post request to /restaurant_info', req.body)
   const rests = await db.restaurantList.findAll();
   const currentId = (await rests.length) + 1;
   try {
     const newRest = await db.restaurantList.create({
       restaurant_id: currentId,
       food_id: currentId,
-      restaurent_name: req.body.restaurent_name,
+      restaurant_name: req.body.restaurant_name,
       restaurant_street: req.body.restaurant_street,
       restaurant_zip: req.body.restaurant_zip,
       restaurant_town: req.body.restaurant_town,

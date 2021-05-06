@@ -23,10 +23,11 @@
                 <li>
                     <h2 id="grad">
                     <form class="userform">
-                        
+                        <div class="flex-outer"></div>
                         <label for="search_text">Search</label>
                    
-                        <input type="text" name="search" id="search-bar" placeholder="search">
+                        <input type="text" name="category" id="category" placeholder="Search Restaurants and Monuments">
+                    </div>
                     </form>
                         <div class="flex-outer">
                         <div class="suggestions"></div>
@@ -36,6 +37,10 @@
             </ul>
         
     </div>
+
+    <ul class="restaurant-target-list"></ul>
+    <ul class="monuments-target-list"></ul>
+
     <div class="row">
         <div class="box">
             <div class="content">
@@ -45,30 +50,31 @@
 
                     <ul class="flex-outer">
                         <li>
-                            <label for="name">Name</label>
-                            <input type="text" id="first-name" placeholder="Enter your first and last name here">
+                            <label for="restName">Restaurant Name</label>
+                            <input type="text" id="name" placeholder="Enter the restaurant name here">
                         </li>
                         <li>
-                            <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="Enter your email here">
+                            <label for="restEmail">Restaurant Email Address</label>
+                            <input type="email" id="email" placeholder="Enter the email here">
                         </li>
                         <li>
-                            <label for="restaurant">Restaurant</label>
-                            <input type="text" id="restaurant" placeholder="Enter restaurant here">
-                        </li>
+                            <label for="restaurant">Restaurant Phone Number</label>
+                            <input type="text" id="phone" placeholder="Enter phone number here">
+                        </li>  
                         <li>
-                            <label for="monu/memor">Monument/Memorial</label>
-                            <input type="text" id="monu" placeholder="Enter monument or memorial here">
-                        </li>
+                            <label for="street">Restaurant Street</label>
+                            <input type="text" id="street" placeholder="Enter street name here">
+                        </li> 
                         <li>
-                            <label for="message">Message</label>
-                            <textarea rows="6" id="message" placeholder="Enter your optional message here"></textarea>
-                        </li>
-                        
+                            <label for="town">Restaurant Town</label>
+                            <input type="text" id="town" placeholder="Enter town name here">
+                        </li> 
                         <li>
-                            <button type="submit">Submit Form</button>
-                        </li>
+                            <label for="zip">Restaurant Zip</label>
+                            <input type="text" id="zip" placeholder="Enter zip here">
+                        </li> 
                     </ul>
+                    <button type="submit" class='button'>Submit Form</button>
                 </form>
         </div>
     </div>
@@ -79,5 +85,5 @@
     <p>INST377 - Group 17</p>
 </div>
 </body>
-<script type='form' src="test.js"></script>
+<script src="subScript.js"></script>
 </html>
