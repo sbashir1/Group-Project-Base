@@ -4,7 +4,7 @@ async function getMonuments() {
   const monuData = await monuRequest.json();
   return monuData;
 }
-async function windowActions() {
+async function get_monuments() {
   console.log('data request');
   const monuInfo = await getMonuments();
   console.table(monuInfo);
@@ -62,7 +62,7 @@ async function restaurant() {
       }
       restaurantDisplay.forEach((item) => {
         restauranthtml = restaurantDisplay.map((place) => (`
-                 <li>
+                 <li class="box2">
                     <span class='Name'>${place.restaurant_name}</span>
                     <span class='Street'>${place.restaurant_street}</span>
                     <span class='Location'>${place.restaurant_town}, ${place.restaurant_zip}</span>
@@ -108,7 +108,7 @@ async function restaurant() {
       //   console.log(targetList);
       monumentsDisplay.forEach((item) => {
         monumentshtml = monumentsDisplay.map((place) => (`
-               <li>
+               <li class="box2">
                   <span class='Name'>${place.Monument_name}</span>
                   <span class='Address'>${place.Monument_address}</span>
                   <span class='Zip'>${place.Monument_zip}</span>
@@ -122,9 +122,9 @@ async function restaurant() {
   }
   
   async function searchResults() {
+    await get_monuments();
     await restaurant();
     await monuments();
   }
-  
+
 window.onload = searchResults;
-window.onload = windowActions; 
