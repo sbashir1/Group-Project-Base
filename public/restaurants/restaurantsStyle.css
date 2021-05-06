@@ -177,24 +177,39 @@ label {
 }
 
 .box {
+    border-color: none;
+    box-shadow: none;
     justify-content: space-evenly;
 }
 .box1 {
+    border-color: none;
+    box-shadow: none;
     border-radius: 0px;
     padding: 10px;
     margin-bottom: 2em;
     width: 300px;
 }
-
+.box2 {
+    margin-top: 20px;
+    padding: 10px;
+    display: inline-block;
+    background-color: rgb(140, 252, 140);
+}
 .Rname {
     font-size: 1.3rem;
     font-weight: 700;
 }
 
+.Name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 10px;
+}
+
 .restaurant_box {
-    margin-top: 2px;
+    margin-top: -10px;
     margin-bottom: 10px;
-    margin-right: 600px;
+    margin-right: 575px;
     width: 10px;
     height: 250px;
     float: right;
@@ -219,7 +234,8 @@ img {
 }
 .photos {
     float: left;
-    margin-top: 5px;
+    margin-top: -20px;
+    margin-left: 250px;
 }
 
 
