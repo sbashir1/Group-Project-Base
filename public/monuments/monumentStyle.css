@@ -67,7 +67,7 @@ body {
 
 
 /*the text in the box*/
-.content{                           /*update: got it:$ */
+.content{                          /*update: got it:$ */
     margin-left: 120px;
     margin-top: 115px;
     width: 399px;
@@ -146,11 +146,6 @@ label {
     margin-left: 15px;
 }
 
-.Rname {
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
 .span {
     display: block;
 }
@@ -163,4 +158,11 @@ label {
 .monuments-target-list {
     text-align: center;
     color: black;
+}
+
+.box2 {
+    margin-top: 20px;
+    padding: 10px;
+    display: inline-block;
+    background-color: rgb(140, 252, 140);
 }
