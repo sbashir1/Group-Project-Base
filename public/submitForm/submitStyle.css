@@ -20,7 +20,7 @@ body {
     overflow-y: scroll;
 
     /*allows for smooth scrolling so pls keep*/
-    height: 1000px;
+    height: 1200px;
 
   }
   .h1{
@@ -70,7 +70,7 @@ body {
 .box {
   border-radius: 0px;
   width: 800px;
-  height: 620px;
+  height: 800px;
   padding-left: 25px;
   padding-right: 250px;
   padding-top: 100px;
@@ -243,3 +243,20 @@ label {
   color: white;
 }
 
+.span {
+  display: block;
+}
+
+.restaurant-target-list {
+  text-align: center;
+  color: black;
+}
+
+.monuments-target-list {
+  text-align: center;
+  color: black;
+}
+
+.button {
+  margin-left: 300px;
+}
