@@ -38,9 +38,9 @@ We haven't written any tests in our repository, but Cyprus will allow you to run
 ## Server Application API
 ```/api``` - use apiRoute for restaurants and monuments data
 * GET - Requests information from our database. returns response 'Server error' if there is an error
-* POST - Creates new records from retrieved data. return response 'Server error' if there is an error
+* POST - Creates new records/objects from retrieved data. return response 'Server error' if there is an error
 * PUT - Updates a existing record. returns response 'Successfully Updated'
-* DELETE - kill the table 'Successfully Deleted'
+* DELETE - kill the table. returns response 'Successfully Deleted'
 
 ## Known Bugs and Future Development 
 
