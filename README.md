@@ -49,7 +49,7 @@ We haven't written any tests in our repository, but Cyprus will allow you to run
 ### Future Development: 
   1. Adding data for more restaurants
   2. Incorporating award and chef information into the website
-  3. Matching monuments to restaurants
+  3. Matching the monuments to restaurants near them
   
 
 * [Markdown guide](https://www.markdownguide.org/cheat-sheet/)
