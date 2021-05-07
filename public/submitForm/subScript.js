@@ -111,7 +111,7 @@ async function monuments() {
   });
 }
 
-async function submitForm() {
+async function newRecord() {
   const form = document.querySelector('#recordSubmit');
   const name = document.querySelector('#name');
   const email = document.querySelector('#email');
@@ -139,10 +139,62 @@ async function submitForm() {
   });
 }
 
+async function getData() {
+  const request = await fetch('/api/restaurant_info');
+  const data = await request.json();
+  return data.data;
+}
+
+async function handleButtonclick(event) {
+  console.log('clicked button', event.target);
+  console.log('button value', event.target.value);
+  const name = document.querySelector('#name');
+  const email = document.querySelector('#email');
+  const phone = document.querySelector('#phone');
+  const street = document.querySelector('#street');
+  const town = document.querySelector('#town');
+  const zip = document.querySelector('#zip');
+  const url = '/api/restaurant_info';
+  const put = await fetch(url, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      restaurant_name: name.value,
+      restaurant_street: street.value,
+      restaurant_zip: zip.value,
+      restaurant_town: town.value,
+      restaurant_phone: phone.value,
+      restaurant_email: email.value,
+      restaurant_id: event.target.value
+    })
+  });
+  console.log('received put request', put);
+}
+
+async function loadData() {
+  const restaurants = await getData();
+  console.table(restaurants);
+  console.log(restaurants);
+
+  restaurants.forEach((restaurant) => {
+    const target = document.querySelector('.restaurantTable');
+    const button = document.createElement('button');
+    const lineBr = document.createElement('br');
+    button.innerText = restaurant.restaurant_name;
+    target.append(button);
+    target.append(lineBr);
+    button.addEventListener('click', (event) => {handleButtonclick(event)})
+  })
+}
+
 async function searchResults() {
   await restaurant();
   await monuments();
-  await submitForm();
+  await newRecord();
+  await getData();
+  await loadData();
 }
 
 window.onload = searchResults;
