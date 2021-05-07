@@ -4,6 +4,7 @@
 When visiting D.C., tourists and locals often struggle to find restaurants close to 
 the famous monuments. Our team designed and created a website that allows users to find
 where their favorite monuments are located and what restaurants are also in the vicinity.
+
 ![alt text](/public/homepage.jpg)
 
 ## Link to Website
@@ -27,5 +28,28 @@ where their favorite monuments are located and what restaurants are also in the 
 2. Run ```npm start```. There should be no errors.
 3. In a web browser, go to url: http://localhost:3000/.
 
+## To run tests for the software
+We haven't written any tests in our repository, but Cyprus will allow you to run your own tests. 
+
+1. Open two terminals in the main project repository.
+2. Run "npm start" in the first terminal.
+3. Run "npm test" in the second terminal.
+
+## Server Application API
+
+
+
+
+
+## Known Bugs and Future Development 
+
+### Bugs:
+  -The pages may load and glitch at first but after a second, they display nicely.
+  
+### Future Development: 
+  1. Adding data for more restaurants
+  2. Incorporating award and chef information into the website
+  3. Matching the monuments to restaurants near them
+  
 
 * [Markdown guide](https://www.markdownguide.org/cheat-sheet/)
