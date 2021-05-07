@@ -13,7 +13,6 @@ where their favorite monuments are located and what restaurants are also in the 
 * Macbook Pro 13~
 
 ## Links
-* [User Manual](https://arcane-taiga-17404.herokuapp.com/) 
 * [Developer Manual](https://github.com/sbashir1/Group17-Project-Base#developer-manual)
 
 # Developer Manual
