@@ -133,7 +133,7 @@ async function newRecord() {
         restaurant_zip: zip.value,
         restaurant_town: town.value,
         restaurant_phone: phone.value,
-        restaurant_email: email.value
+        restaurant_email: email.value,
       })
     });
     console.log('resolved put request',put);

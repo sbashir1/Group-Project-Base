@@ -206,14 +206,10 @@ label {
     padding: 10px;
 }
 
-.restaurant_box {
-    margin-top: -10px;
-    margin-bottom: 10px;
-    margin-right: 575px;
-    width: 10px;
-    height: 250px;
-    float: right;
-}
+/* .restaurant_box {
+    align-items: left;ß
+    text-align: left
+} */
 
 
 .restaurant-target-list {
@@ -232,11 +228,7 @@ img {
     margin-left: 100px;
     padding: 10px;
 }
-.photos {
-    float: left;
-    margin-top: -20px;
-    margin-left: 250px;
-}
+
 
 
 
