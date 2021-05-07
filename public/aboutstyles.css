@@ -79,7 +79,8 @@ body {
 }
 
 /*the text in the box*/
-.content{                           
+.content{      
+    text-align: center;                     
     margin-left: 60px;
     margin-top: 75px;
     width: 600px;

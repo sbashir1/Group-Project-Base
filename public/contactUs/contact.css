@@ -68,9 +68,10 @@ body {
 }
 
 .content{
+    font-weight: 600;
     font-size: 1rem;
     height: 2rem;
-    line-height: 1.2;
+    line-height: 1;
     text-align: center;
     top: 300px;
     left: 380px;
@@ -157,4 +158,8 @@ label {
 .monuments-target-list {
     text-align: center;
     color: black;
+}
+
+.button{
+    font-weight: 300;
 }
