@@ -26,6 +26,7 @@ where their favorite monuments are located and what restaurants are also in the 
 ## How to run application on a server
 1. Open repository in VSCode terminal or Terminal application.
 2. Run ```npm start```. There should be no errors.
+3. In a web browser, go to url: http://localhost:3000/.
 
 
 * [Markdown guide](https://www.markdownguide.org/cheat-sheet/)
