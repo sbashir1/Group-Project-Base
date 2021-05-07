@@ -36,10 +36,11 @@ We haven't written any tests in our repository, but Cyprus will allow you to run
 3. Run "npm test" in the second terminal.
 
 ## Server Application API
-
-
-
-
+```/api``` - use apiRoute for restaurants and monuments data
+* GET - Requests information from our database. returns response 'Server error' if there is an error
+* POST - Creates new records from retrieved data. return response 'Server error' if there is an error
+* PUT - Updates a existing record. returns response 'Successfully Updated'
+* DELETE - kill the table 'Successfully Deleted'
 
 ## Known Bugs and Future Development 
 
