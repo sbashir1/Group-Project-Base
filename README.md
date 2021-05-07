@@ -11,7 +11,7 @@ where their favorite monuments are located and what restaurants are also in the 
 [https://arcane-taiga-17404.herokuapp.com/](https://arcane-taiga-17404.herokuapp.com/)
 
 ## Target Browsers
-* Macbook Pro 13~
+* Macbook Pro 13 ~ Present
 
 ## Links
 * [Developer Manual](https://github.com/sbashir1/Group17-Project-Base#developer-manual)
@@ -53,4 +53,4 @@ We haven't written any tests in our repository, but Cyprus will allow you to run
   3. Matching the monuments to restaurants near them
   
 
-* [Markdown guide](https://www.markdownguide.org/cheat-sheet/)
+<!-- * [Markdown guide](https://www.markdownguide.org/cheat-sheet/) -->
