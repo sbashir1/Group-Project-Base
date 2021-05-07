@@ -11,7 +11,8 @@ where their favorite monuments are located and what restaurants are also in the 
 [https://arcane-taiga-17404.herokuapp.com/](https://arcane-taiga-17404.herokuapp.com/)
 
 ## Target Browsers
-* Macbook Pro 13 ~ Present
+* Desktop/PC web brower (Internet Explorer, Google Chrome, or Apple's Safari)
+
 
 ## Links
 * [Developer Manual](https://github.com/sbashir1/Group17-Project-Base#developer-manual)
@@ -38,7 +39,7 @@ We haven't written any tests in our repository, but Cyprus will allow you to run
 ## Server Application API
 ```/api``` - use apiRoute for restaurants and monuments data
 * GET - Requests information from our database. returns response 'Server error' if there is an error
-* POST - Creates new records/objects from retrieved data. return response 'Server error' if there is an error
+* POST - Creates new records/objects from retrieved data. returns response 'Server error' if there is an error
 * PUT - Updates a existing record. returns response 'Successfully Updated'
 * DELETE - kill the table. returns response 'Successfully Deleted'
 
