@@ -4,6 +4,7 @@
 When visiting D.C., tourists and locals often struggle to find restaurants close to 
 the famous monuments. Our team designed and created a website that allows users to find
 where their favorite monuments are located and what restaurants are also in the vicinity.
+
 ![alt text](/public/homepage.jpg)
 
 ## Link to Website
