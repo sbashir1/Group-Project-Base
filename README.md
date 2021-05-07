@@ -1,4 +1,4 @@
-# Washington DC monuments and restaurants
+# Washington DC Monuments and Restaurants
 
 ## Description
 When visiting D.C., tourists and locals often struggle to find restaurants close to 
