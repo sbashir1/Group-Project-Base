@@ -4,16 +4,33 @@ async function getRestaurants() {
   return Restdata;
 }
 
+
 async function get_restaurants() {
   console.log('window loaded');
   const results = await getRestaurants();
   const restInfo = results.data.slice(0, 10);
   console.table(restInfo);
 
+/*
+  const restPhoto = document.querySelector('.photos');
+  const a = document.createElement('div');
+  const img = document.createElement("img");
+  img.src = "restaurantPhotos/food.jpeg";
+  
+  restPhoto.appendChild(a)
+  a.appendChild(img) 
+  
+
+   let defaultPhoto =  `
+    <div id="img">
+    <img src="restaurantPhotos/food.jpeg" alt="new record" >
+    </div>
+        `;
+    restPhoto.append(defaultPhoto); */
   const restList = document.querySelector('.restaurant_box');
   const html = restInfo.map((place) => {
     console.log('display');
-
+    
     const restName = place.restaurant_name;
     return `
         <div class="box1">  
