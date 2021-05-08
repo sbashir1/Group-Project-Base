@@ -176,10 +176,10 @@ label {
     margin-top: 50px;
 }
 
-.box {
+    .box {
     border-color: none;
     box-shadow: none;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 .box1 {
     border-color: none;
@@ -188,10 +188,11 @@ label {
     padding: 10px;
     margin-bottom: 2em;
     width: 300px;
+    margin-left: -100%;
 }
 .box2 {
     margin-top: 20px;
-    padding: 10px;
+    padding: 10%;
     display: inline-block;
     background-color: rgb(140, 252, 140);
 }
@@ -225,7 +226,7 @@ label {
 img {
     width: 250px;
     height: 180px;
-    margin-left: 100px;
+    margin-left: 35%;
     padding: 10px;
 }
 
