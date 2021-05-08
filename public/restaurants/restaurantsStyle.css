@@ -187,7 +187,7 @@ justify-content: center;
     padding: 10px;
     display: inline-block;
     background-color: rgb(140, 252, 140);
-    border: 3px solid rgb(0, 138, 223);
+    border: 1px solid rgb(0, 138, 223);
 }
 .Rname {
     font-size: 1.3rem;
