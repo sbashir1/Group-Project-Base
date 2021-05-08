@@ -177,23 +177,17 @@ label {
 }
 
 .box {
-    border-color: none;
-    box-shadow: none;
-    justify-content: space-evenly;
+border-color: none;
+box-shadow: none;
+justify-content: center;
 }
-.box1 {
-    border-color: none;
-    box-shadow: none;
-    border-radius: 0px;
-    padding: 10px;
-    margin-bottom: 2em;
-    width: 300px;
-}
+
 .box2 {
     margin-top: 20px;
     padding: 10px;
     display: inline-block;
     background-color: rgb(140, 252, 140);
+    border: 1px solid rgb(0, 138, 223);
 }
 .Rname {
     font-size: 1.3rem;
@@ -206,10 +200,10 @@ label {
     padding: 10px;
 }
 
-/* .restaurant_box {
-    align-items: left;ß
-    text-align: left
-} */
+.restaurant_box {
+    margin-left: 10%;
+    text-align: left;
+}
 
 
 .restaurant-target-list {
@@ -222,13 +216,25 @@ label {
     color: black;
 }
 
+/* iamge */
 img {
     width: 250px;
     height: 180px;
-    margin-left: 100px;
+    margin-left: 35%;
     padding: 10px;
+    margin-top: 2px;
 }
 
-
+/* restaurant list */
+.box1 {
+    border-color: none;
+    box-shadow: none;
+    border: 10px solid white; 
+    border-radius: 0px;
+    padding: 10px;
+    margin-top: 5%;
+    width: 300px;
+    margin-left: -100%;
+}
 
 

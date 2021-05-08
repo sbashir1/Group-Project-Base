@@ -21,7 +21,9 @@
 // function onLoad(){
 //      console.log('script loaded');
 // }
-
+async function myFunction() {
+  alert("Submitted!");
+}
 async function restaurant() {
   console.log('Window loaded');
   const form = document.querySelector('.userform');
@@ -136,6 +138,7 @@ async function newRecord() {
         restaurant_email: email.value,
       })
     });
+    console.log('resolved put request',put);
   });
 }
 
@@ -149,11 +152,11 @@ async function handleButtonclick(event) {
   console.log('clicked button', event.target);
   console.log('button value', event.target.value);
   const name = document.querySelector('#name');
-  const email = document.querySelector('#email');
-  const phone = document.querySelector('#phone');
-  const street = document.querySelector('#street');
-  const town = document.querySelector('#town');
-  const zip = document.querySelector('#zip');
+  //const email = document.querySelector('#email');
+  //const phone = document.querySelector('#phone');
+  //const street = document.querySelector('#street');
+  //const town = document.querySelector('#town');
+  //const zip = document.querySelector('#zip');
   const url = '/api/restaurant_info';
   const put = await fetch(url, {
     method: 'PUT',
@@ -162,15 +165,18 @@ async function handleButtonclick(event) {
     },
     body: JSON.stringify({
       restaurant_name: name.value,
-      restaurant_street: street.value,
-      restaurant_zip: zip.value,
-      restaurant_town: town.value,
-      restaurant_phone: phone.value,
-      restaurant_email: email.value,
-      restaurant_id: event.target.value
+      //restaurant_street: street.value,
+      //restaurant_zip: zip.value,
+      //restaurant_town: town.value,
+      //restaurant_phone: phone.value,
+      //restaurant_email: email.value,
+      //restaurant_id: event.target.value
     })
   });
   console.log('received put request', put);
+  const nameUpdate = await put.json();
+  console.log(nameUpdate);
+  event.target.innerText = nameUpdate.update;
 }
 
 async function loadData() {
