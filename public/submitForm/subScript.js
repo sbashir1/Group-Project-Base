@@ -21,7 +21,9 @@
 // function onLoad(){
 //      console.log('script loaded');
 // }
-
+async function myFunction() {
+  alert("Submitted!");
+}
 async function restaurant() {
   console.log('Window loaded');
   const form = document.querySelector('.userform');
