@@ -176,10 +176,10 @@ label {
     margin-top: 50px;
 }
 
-    .box {
-    border-color: none;
-    box-shadow: none;
-    justify-content: center;
+.box {
+border-color: none;
+box-shadow: none;
+justify-content: center;
 }
 
 .box2 {
@@ -187,6 +187,7 @@ label {
     padding: 10px;
     display: inline-block;
     background-color: rgb(140, 252, 140);
+    border: 3px solid rgb(0, 138, 223);
 }
 .Rname {
     font-size: 1.3rem;
