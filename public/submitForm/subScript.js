@@ -138,7 +138,7 @@ async function newRecord() {
         restaurant_email: email.value,
       })
     });
-    console.log('resolved put request',put);
+    // console.log('resolved put request', put);
   });
 }
 
@@ -164,7 +164,7 @@ async function handleButtonclick(event) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      restaurant_name: name.value,
+      restaurant_name: name.value
       //restaurant_street: street.value,
       //restaurant_zip: zip.value,
       //restaurant_town: town.value,

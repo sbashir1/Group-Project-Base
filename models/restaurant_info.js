@@ -6,7 +6,8 @@ export default (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
-        unique: true
+        unique: true,
+        autoIncrement: true
       },
       food_id: {
         type: DataTypes.INTEGER,
