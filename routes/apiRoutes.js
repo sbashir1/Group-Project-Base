@@ -67,7 +67,7 @@ router.put('/restaurant_info', async (req, res) => {
   try {
     await db.restaurantList.update(
       {
-        restaurent_name: req.body.restaurent_name,
+        restaurant_name: req.body.restaurant_name,
         restaurant_street: req.body.restaurant_street,
         restaurant_zip: req.body.restaurant_zip,
         restaurant_town: req.body.restaurant_town,
